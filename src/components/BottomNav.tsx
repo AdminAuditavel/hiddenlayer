@@ -40,8 +40,7 @@ const BottomNav: React.FC<Props> = ({
         layers
       </button>
 
-      <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center -translate-y-4 shadow-lg shadow-primary/30">
-        <span className="material-icons text-black font-bold">
+      <span className="material-icons text-black font-bold">
           radar
         </span>
       </div>
