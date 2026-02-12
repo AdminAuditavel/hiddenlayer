@@ -70,7 +70,7 @@ const HomeView: React.FC<Props> = ({
                 </h1>
 
                 <p className="text-[11px] font-medium tracking-widest-plus text-white/50 uppercase leading-relaxed max-w-[280px]">
-                  ENTRE A ENTRADA<br />E A SAÍDA
+                  Representation between <br />input and output
                 </p>
               </div>
 
