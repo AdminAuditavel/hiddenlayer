@@ -11,7 +11,6 @@ import BottomNav from "../components/BottomNav";
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<AppView>(AppView.HOME);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [isAssistantOpen, setAssistantOpen] = useState(false);
 
   const navigateToDetail = (product: Product) => {
     setSelectedProduct(product);
