@@ -18,12 +18,18 @@ const HomeView: React.FC<Props> = ({
 }) => {
   return (
     <div className="animate-in fade-in duration-500">
+      {/* NAVBAR */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5 pt-12 pb-4 px-6">
         <div className="flex items-center justify-between mb-6">
           <div className="text-xl font-bold tracking-tighter">HL</div>
+
           <div className="flex gap-4">
-            <button className="material-icons text-white/70">search</button>
-            <button className="material-icons text-white/70">shopping_bag</button>
+            <button className="material-icons text-white/70">
+              search
+            </button>
+            <button className="material-icons text-white/70">
+              shopping_bag
+            </button>
           </div>
         </div>
 
@@ -37,9 +43,9 @@ const HomeView: React.FC<Props> = ({
               }`}
               onClick={() => setCurrentView(AppView.HOME)}
             >
-              Série Matemática
+              Mathematics
             </li>
-            <li>Sistema</li>
+            <li>System</li>
             <li>Signal</li>
             <li>Field</li>
           </ul>
@@ -47,29 +53,43 @@ const HomeView: React.FC<Props> = ({
       </nav>
 
       <main className="pt-40 pb-20">
-        {/* A/C: desktop max-width + horizontal centering + reduce hero vertical dominance */}
         <div className="max-w-[1280px] mx-auto px-6">
+
+          {/* HERO */}
           <section className="mb-16">
-            <div className="relative">
-              <div className="absolute -top-10 left-0 text-[10px] font-medium text-primary tracking-widest uppercase">
-                [ ARCHIVE_VERSION_2.04 ]
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
+
+              {/* LEFT SIDE — BRAND */}
+              <div className="relative">
+                <div className="absolute -top-10 left-0 text-[10px] font-medium text-primary tracking-widest uppercase">
+                  [ ARCHIVE_VERSION_2.04 ]
+                </div>
+
+                <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold leading-none tracking-tighter-minus mb-6 uppercase">
+                  HIDDEN<br />LAYER
+                </h1>
+
+                <p className="text-[11px] font-medium tracking-widest-plus text-white/50 uppercase leading-relaxed max-w-[280px]">
+                  ENTRE A ENTRADA<br />E A SAÍDA
+                </p>
               </div>
 
-              <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold leading-none tracking-tighter-minus mb-6 uppercase">
-                HIDDEN<br />LAYER
-              </h1>
+              {/* RIGHT SIDE — TECHNICAL INFO (DESKTOP ONLY) */}
+              <div className="hidden lg:flex flex-col items-end text-right gap-2 text-[10px] tracking-widest uppercase text-white/30">
+                <span>SYSTEM STATUS: OPERATIONAL</span>
+                <span>ARCHIVE: HL-2024</span>
+                <span>SERIES LOADED: MATHEMATICS</span>
+                <span>LAYER STATE: ACTIVE</span>
+              </div>
 
-              <p className="text-[11px] font-medium tracking-widest-plus text-white/50 uppercase leading-relaxed max-w-[280px]">
-                ENTRE A ENTRADA<br />E A SAÍDA
-              </p>
             </div>
           </section>
 
-          {/* D/A: improved transition + section max width/centering */}
+          {/* SERIES INTRO */}
           <section className="mb-8 pt-12 border-t border-white/5">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-[10px] bg-primary/10 text-primary px-2 py-1 rounded font-bold uppercase tracking-widest">
-                SÉRIE MATEMÁTICA
+                MATHEMATICS SERIES
               </span>
               <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">
                 [ VOL. 01 ]
@@ -82,7 +102,7 @@ const HomeView: React.FC<Props> = ({
             </p>
           </section>
 
-          {/* A/B: product grid container max width/centering + responsive cols */}
+          {/* PRODUCTS GRID */}
           <section className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {products.map((p) => (
               <div
@@ -96,6 +116,7 @@ const HomeView: React.FC<Props> = ({
                     src={p.image}
                     alt={p.name}
                   />
+
                   <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded">
                     <span className="text-[9px] font-bold text-white/80 tracking-widest uppercase">
                       REF: {p.ref}
@@ -107,19 +128,20 @@ const HomeView: React.FC<Props> = ({
                   <h3 className="text-xs font-bold tracking-widest uppercase mb-1">
                     {p.name}
                   </h3>
+
                   <p className="text-[9px] text-white/40 mb-4 uppercase tracking-wider">
                     {p.category}
                   </p>
 
                   <button className="w-full py-2 border border-primary/30 text-primary text-[9px] font-bold uppercase tracking-widest rounded hover:bg-primary/10 transition-colors">
-                    ABRIR DOCUMENTAÇÃO
+                    OPEN DOCUMENTATION
                   </button>
                 </div>
               </div>
             ))}
           </section>
 
-          {/* A: footer constrained + centered */}
+          {/* FOOTER */}
           <footer className="mt-24 py-12 border-t border-white/10">
             <div className="flex flex-col gap-6">
               <div className="text-[10px] font-bold tracking-widest uppercase text-white/30">
@@ -129,7 +151,7 @@ const HomeView: React.FC<Props> = ({
               <div className="grid grid-cols-2 gap-8">
                 <div>
                   <h4 className="text-[10px] font-bold text-primary uppercase tracking-widest mb-4">
-                    MAPA
+                    MAP
                   </h4>
                   <ul className="text-[10px] text-white/50 uppercase tracking-widest space-y-2">
                     <li>Logistics</li>
@@ -140,7 +162,7 @@ const HomeView: React.FC<Props> = ({
 
                 <div>
                   <h4 className="text-[10px] font-bold text-primary uppercase tracking-widest mb-4">
-                    CONEXÃO
+                    CONNECTION
                   </h4>
                   <ul className="text-[10px] text-white/50 uppercase tracking-widest space-y-2">
                     <li>Instagram</li>
@@ -152,10 +174,11 @@ const HomeView: React.FC<Props> = ({
 
               <div className="mt-12 text-[8px] text-white/20 uppercase tracking-[0.3em] font-medium leading-loose">
                 Copyright © Hidden Layer System Solutions.<br />
-                Desenvolvido sob paradigmas matemáticos.
+                Developed under mathematical paradigms.
               </div>
             </div>
           </footer>
+
         </div>
       </main>
     </div>
