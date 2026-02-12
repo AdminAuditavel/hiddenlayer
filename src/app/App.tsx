@@ -6,8 +6,8 @@ import HomeView from "../views/HomeView";
 import CatalogView from "../views/CatalogView";
 import DetailView from "../views/DetailView";
 
-import AssistantModal from "./components/AssistantModal";
-import BottomNav from "./components/BottomNav";
+import AssistantModal from "../components/AssistantModal";
+import BottomNav from "../components/BottomNav";
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<AppView>(AppView.HOME);
