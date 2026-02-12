@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AppView, Product } from "./types";
-import { PRODUCTS } from "./constants";
+import { PRODUCTS } from "../data/products";
 
 import HomeView from "./views/HomeView";
 import CatalogView from "./views/CatalogView";
