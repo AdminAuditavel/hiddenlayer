@@ -6,7 +6,6 @@ import HomeView from "../views/HomeView";
 import CatalogView from "../views/CatalogView";
 import DetailView from "../views/DetailView";
 
-import AssistantModal from "../components/AssistantModal";
 import BottomNav from "../components/BottomNav";
 
 const App: React.FC = () => {
@@ -53,12 +52,6 @@ const App: React.FC = () => {
       <BottomNav
         currentView={currentView}
         setCurrentView={setCurrentView}
-      />
-
-      {/* Assistant */}
-      <AssistantModal
-        isOpen={isAssistantOpen}
-        onClose={() => setAssistantOpen(false)}
       />
     </div>
   );
