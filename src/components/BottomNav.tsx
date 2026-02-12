@@ -12,6 +12,7 @@ const BottomNav: React.FC<Props> = ({
 }) => {
   return (
     <div className="fixed bottom-0 left-0 right-0 h-20 bg-black/90 backdrop-blur-xl border-t border-white/5 flex items-center justify-around px-8 pb-4 z-50">
+
       <button
         onClick={() => {
           setCurrentView(AppView.HOME);
@@ -40,11 +41,6 @@ const BottomNav: React.FC<Props> = ({
         layers
       </button>
 
-      <span className="material-icons text-black font-bold">
-          radar
-        </span>
-      </div>
-
       <button className="material-icons text-white/40">
         radar
       </button>
@@ -52,6 +48,7 @@ const BottomNav: React.FC<Props> = ({
       <button className="material-icons text-white/40">
         person_outline
       </button>
+
     </div>
   );
 };
