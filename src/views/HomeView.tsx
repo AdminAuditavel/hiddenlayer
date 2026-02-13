@@ -112,8 +112,7 @@ const HomeView: React.FC<Props> = ({
                 </div>
 
                 <p className="text-[12px] text-white/60 uppercase tracking-wider max-w-md">
-                  Wearable explorations based on compression logic and modular
-                  systems. Where structure meets absolute geometry.
+                 Explorações vestíveis baseadas em lógica de compressão e sistemas modulares. Onde a estrutura encontra a geometria absoluta.
                 </p>
               </div>
             </div>
