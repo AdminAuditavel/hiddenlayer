@@ -27,7 +27,7 @@ const HomeView: React.FC<Props> = ({
           <div className="flex items-center">
             {!logoError ? (
               <img
-                src="/Logo-Ofical-HL-Branco.svg"
+                src="/Logo-HL-Branco.svg"
                 alt="Hidden Layer"
                 className="h-6 w-auto"
                 onError={() => setLogoError(true)}
