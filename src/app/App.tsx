@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { AppView, Product } from "../types";
 import { PRODUCTS } from "../data/products";
 
@@ -11,6 +11,11 @@ import BottomNav from "../components/BottomNav";
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<AppView>(AppView.HOME);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [logoError, setLogoError] = useState(false);
+
+  // Se você mover o svg para a pasta public/ na raiz do projeto, este path funciona.
+  // Se o arquivo ficar em src/public, este path NÃO funciona.
+  const logoSrc = useMemo(() => "/Logo-Ofical-HL-Branco.svg", []);
 
   const navigateToDetail = (product: Product) => {
     setSelectedProduct(product);
@@ -20,18 +25,73 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black relative text-white">
-
       {/* HEADER */}
       <header className="w-full border-b border-neutral-800">
-        <div className="max-w-7xl mx-auto px-6 h-14 flex items-baseline">
-          
-          {/* Logo */}
-          <img
-            src="/Logo-Ofical-HL-Branco.svg"
-            alt="Hidden Layer"
-            className="h-[22px] w-auto"
-          />
+        <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+          {/* Logo (com fallback HL) */}
+          <div className="flex items-center h-full">
+            {!logoError ? (
+              <img
+                src={logoSrc}
+                alt="Hidden Layer"
+                className="h-[22px] w-auto block"
+                onError={() => setLogoError(true)}
+              />
+            ) : (
+              <span className="text-white font-semibold tracking-wide">HL</span>
+            )}
+          </div>
 
+          {/* Actions (Search + Bag) */}
+          <div className="flex items-center gap-5">
+            <button
+              type="button"
+              className="text-white/80 hover:text-white transition-colors"
+              aria-label="Buscar"
+            >
+              {/* Search icon */}
+              <svg
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-4.35-4.35m1.6-5.15a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              className="text-white/80 hover:text-white transition-colors"
+              aria-label="Sacola"
+            >
+              {/* Bag icon */}
+              <svg
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 8V7a6 6 0 0112 0v1"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 8h14l-1 13H6L5 8z"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -47,25 +107,16 @@ const App: React.FC = () => {
 
       {/* CATALOG */}
       {currentView === AppView.CATALOG && (
-        <CatalogView
-          products={PRODUCTS}
-          navigateToDetail={navigateToDetail}
-        />
+        <CatalogView products={PRODUCTS} navigateToDetail={navigateToDetail} />
       )}
 
       {/* DETAIL */}
       {currentView === AppView.DETAIL && selectedProduct && (
-        <DetailView
-          product={selectedProduct}
-          setCurrentView={setCurrentView}
-        />
+        <DetailView product={selectedProduct} setCurrentView={setCurrentView} />
       )}
 
       {/* Bottom Navigation */}
-      <BottomNav
-        currentView={currentView}
-        setCurrentView={setCurrentView}
-      />
+      <BottomNav currentView={currentView} setCurrentView={setCurrentView} />
     </div>
   );
 };
