@@ -75,7 +75,7 @@ const HomeView: React.FC<Props> = ({
             {/* TECHNICAL GRID */}
             <div className="absolute inset-0 technical-grid opacity-[0.07] pointer-events-none"></div>
 
-            <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-end">
+            <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
               {/* LEFT */}
               <div className="space-y-2">
                 <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-none tracking-tighter-minus uppercase whitespace-nowrap -translate-y-[2px]">
@@ -88,7 +88,7 @@ const HomeView: React.FC<Props> = ({
               </div>
 
               {/* RIGHT */}
-              <div className="hidden lg:flex flex-col items-end text-right gap-2 text-[10px] tracking-widest uppercase text-white/30">
+              <div className="hidden lg:flex flex-col items-end text-right gap-2 text-[10px] tracking-widest uppercase text-white/30 mt-6">
                 <span>SYSTEM STATUS: OPERATIONAL</span>
                 <span>ARCHIVE: HL-2024</span>
                 <span>SERIES LOADED: MATHEMATICS</span>
@@ -99,7 +99,7 @@ const HomeView: React.FC<Props> = ({
 
           {/* SERIES HEADER */}
           <section className="mb-10 border-t border-white/10 pt-6">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <div className="flex flex-col md:flex-row md: md:justify-between gap-4">
               <div>
                 <div className="flex items-center gap-3 mb-2">
                   <span className="text-[10px] bg-primary/10 text-primary px-2 py-1 rounded font-bold uppercase tracking-widest">
