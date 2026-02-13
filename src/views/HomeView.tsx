@@ -23,7 +23,7 @@ const HomeView: React.FC<Props> = ({
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
         {/* top row */}
-        <div className="max-w-[1280px] mx-auto px-6 h-14 flex items-center justify-between">
+        <div className="max-w-[1280px] mx-auto px-6 h-12 flex items-center justify-between">
           <div className="flex items-center">
             {!logoError ? (
               <img
@@ -68,7 +68,7 @@ const HomeView: React.FC<Props> = ({
       </nav>
 
       {/* content */}
-      <main className="pt-28 pb-20">
+      <main className="pt-24 pb-20">
         <div className="max-w-[1280px] mx-auto px-6">
           {/* HERO */}
           <section className="mb-10 relative">
@@ -77,12 +77,12 @@ const HomeView: React.FC<Props> = ({
 
             <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-end">
               {/* LEFT */}
-              <div className="space-y-4">
-                <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-none tracking-tighter-minus uppercase whitespace-nowrap">
+              <div className="space-y-2">
+                <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-none tracking-tighter-minus uppercase whitespace-nowrap -translate-y-[2px]">
                   HIDDEN LAYER
                 </h1>
 
-                <p className="text-[11px] font-medium tracking-widest-plus text-white/50 uppercase leading-none">
+                <p className="text-[11px] font-medium tracking-widest-plus text-white/50 uppercase leading-tight">
                   REPRESENTATION BETWEEN INPUT AND OUTPUT
                 </p>
               </div>
