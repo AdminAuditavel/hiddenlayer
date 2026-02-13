@@ -1,6 +1,6 @@
 //src/views/HomeView.tsx
 
-import React from "react";
+import React, { useState } from "react";
 import { Product, AppView } from "../types";
 
 type Props = {
@@ -16,62 +16,75 @@ const HomeView: React.FC<Props> = ({
   setCurrentView,
   navigateToDetail,
 }) => {
+  const [logoError, setLogoError] = useState(false);
+
   return (
     <div className="animate-in fade-in duration-500">
       {/* NAVBAR */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5 pt-12 pb-4 px-6">
-        <div className="flex items-center justify-between mb-6">
-          <div className="text-xl font-bold tracking-tighter">HL</div>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
+        {/* top row */}
+        <div className="max-w-[1280px] mx-auto px-6 h-14 flex items-center justify-between">
+          <div className="flex items-center">
+            {!logoError ? (
+              <img
+                src="/Logo-Ofical-HL-Branco.svg"
+                alt="Hidden Layer"
+                className="h-[22px] w-auto block"
+                onError={() => setLogoError(true)}
+              />
+            ) : (
+              <div className="text-xl font-bold tracking-tighter">HL</div>
+            )}
+          </div>
 
           <div className="flex gap-4">
-            <button className="material-icons text-white/70">
-              search
-            </button>
+            <button className="material-icons text-white/70">search</button>
             <button className="material-icons text-white/70">
               shopping_bag
             </button>
           </div>
         </div>
 
-        <div className="overflow-x-auto hide-scrollbar">
-          <ul className="flex space-x-8 text-[10px] font-medium tracking-widest-plus uppercase text-white/60 whitespace-nowrap">
-            <li
-              className={`pb-1 ${
-                currentView === AppView.HOME
-                  ? "text-primary border-b border-primary"
-                  : ""
-              }`}
-              onClick={() => setCurrentView(AppView.HOME)}
-            >
-              Mathematics
-            </li>
-            <li>System</li>
-            <li>Signal</li>
-            <li>Field</li>
-          </ul>
+        {/* tabs row */}
+        <div className="max-w-[1280px] mx-auto px-6 pb-4">
+          <div className="overflow-x-auto hide-scrollbar">
+            <ul className="flex space-x-8 text-[10px] font-medium tracking-widest-plus uppercase text-white/60 whitespace-nowrap">
+              <li
+                className={`pb-1 ${
+                  currentView === AppView.HOME
+                    ? "text-primary border-b border-primary"
+                    : ""
+                }`}
+                onClick={() => setCurrentView(AppView.HOME)}
+              >
+                Mathematics
+              </li>
+              <li>System</li>
+              <li>Signal</li>
+              <li>Field</li>
+            </ul>
+          </div>
         </div>
       </nav>
 
-      <main className="pt-40 pb-20">
+      {/* Ajuste do padding-top para compensar a navbar fixa (h-14 + abas) */}
+      <main className="pt-32 pb-20">
         <div className="max-w-[1280px] mx-auto px-6">
-
           {/* HERO */}
           <section className="mb-16 relative">
-
             {/* TECHNICAL GRID */}
             <div className="absolute inset-0 technical-grid opacity-[0.07] pointer-events-none"></div>
 
             <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
-
               {/* LEFT */}
               <div className="space-y-6">
                 <div className="text-[10px] font-medium text-primary tracking-widest uppercase">
                   [ ARCHIVE_VERSION_2.04 ]
                 </div>
 
-               <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-none tracking-tighter-minus uppercase whitespace-nowrap">
-                HIDDEN LAYER
-              </h1>
+                <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-none tracking-tighter-minus uppercase whitespace-nowrap">
+                  HIDDEN LAYER
+                </h1>
 
                 <p className="text-[11px] font-medium tracking-widest-plus text-white/50 uppercase leading-none">
                   REPRESENTATION BETWEEN INPUT AND OUTPUT
@@ -85,14 +98,12 @@ const HomeView: React.FC<Props> = ({
                 <span>SERIES LOADED: MATHEMATICS</span>
                 <span className="text-primary">LAYER STATE: ACTIVE</span>
               </div>
-
             </div>
           </section>
 
           {/* SERIES HEADER */}
           <section className="mb-10 border-t border-white/10 pt-6">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-
               <div>
                 <div className="flex items-center gap-3 mb-2">
                   <span className="text-[10px] bg-primary/10 text-primary px-2 py-1 rounded font-bold uppercase tracking-widest">
@@ -109,7 +120,6 @@ const HomeView: React.FC<Props> = ({
                   systems. Where structure meets absolute geometry.
                 </p>
               </div>
-
             </div>
           </section>
 
@@ -159,11 +169,11 @@ const HomeView: React.FC<Props> = ({
             </div>
 
             <div className="mt-12 text-[8px] text-white/20 uppercase tracking-[0.3em] font-medium leading-loose">
-              Copyright © Hidden Layer System Solutions.<br />
+              Copyright © Hidden Layer System Solutions.
+              <br />
               Developed under mathematical paradigms.
             </div>
           </footer>
-
         </div>
       </main>
     </div>
