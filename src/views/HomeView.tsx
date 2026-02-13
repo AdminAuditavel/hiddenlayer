@@ -124,35 +124,49 @@ const HomeView: React.FC<Props> = ({
             {products.map((p) => (
               <div
                 key={p.id}
-                onClick={() => navigateToDetail(p)}
-                className="bg-surface rounded-lg overflow-hidden border border-white/5 group active:scale-[0.98] transition-transform"
+                className="bg-surface rounded-lg overflow-hidden border border-white/5 group transition-transform"
               >
+                {/* IMAGE */}
                 <div className="aspect-[3/4] overflow-hidden relative">
                   <img
                     className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity grayscale contrast-125"
                     src={p.image}
                     alt={p.name}
                   />
-
+          
                   <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded">
                     <span className="text-[9px] font-bold text-white/80 tracking-widest uppercase">
                       REF: {p.ref}
                     </span>
                   </div>
                 </div>
-
+          
+                {/* CONTENT */}
                 <div className="p-4">
                   <h3 className="text-xs font-bold tracking-widest uppercase mb-1">
                     {p.name}
                   </h3>
-
-                  <p className="text-[9px] text-white/40 mb-4 uppercase tracking-wider">
+          
+                  <p className="text-[9px] text-white/40 uppercase tracking-wider mb-2">
                     {p.category}
                   </p>
-
-                  <button className="w-full py-2 border border-primary/30 text-primary text-[9px] font-bold uppercase tracking-widest rounded hover:bg-primary/10 transition-colors">
-                    OPEN DOCUMENTATION
-                  </button>
+          
+                  {/* purchase info */}
+                  <div className="text-[8px] text-white/30 uppercase tracking-widest mb-3">
+                    Disponível via HotPrinti
+                  </div>
+          
+                  {/* CTA */}
+                  <a
+                    href={p.hotprintiUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <button className="w-full py-2 border border-primary/30 text-primary text-[9px] font-bold uppercase tracking-widest rounded hover:bg-primary/10 transition-colors">
+                      Ver produto
+                    </button>
+                  </a>
                 </div>
               </div>
             ))}
