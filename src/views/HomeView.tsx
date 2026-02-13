@@ -65,6 +65,7 @@ const HomeView: React.FC<Props> = ({
         </div>
       </nav>
 
+      {/* CONTENT */}
       <main className="pt-24 pb-20">
         <div className="max-w-[1280px] mx-auto px-6">
 
@@ -73,6 +74,7 @@ const HomeView: React.FC<Props> = ({
             <div className="absolute inset-0 technical-grid opacity-[0.07] pointer-events-none"></div>
 
             <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+              {/* LEFT */}
               <div className="space-y-3">
                 <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-none tracking-tighter-minus uppercase whitespace-nowrap -translate-y-[2px]">
                   HIDDEN LAYER
@@ -82,13 +84,13 @@ const HomeView: React.FC<Props> = ({
                   REPRESENTATION BETWEEN INPUT AND OUTPUT
                 </p>
 
-                {/* editorial anchor */}
                 <div className="pt-3 text-[10px] uppercase tracking-widest text-white/40">
                   <div>MATHEMATICS SERIES — VOL.01</div>
                   <div className="text-primary">AVAILABLE NOW</div>
                 </div>
               </div>
 
+              {/* RIGHT */}
               <div className="hidden lg:flex flex-col items-end text-right gap-2 text-[10px] tracking-widest uppercase text-white/30 mt-6">
                 <span>SYSTEM STATUS: OPERATIONAL</span>
                 <span>ARCHIVE: HL-2024</span>
@@ -102,19 +104,13 @@ const HomeView: React.FC<Props> = ({
           <section className="mb-10 border-t border-white/10 pt-6">
             <div className="flex flex-col gap-4">
               <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-[10px] bg-primary/10 text-primary px-2 py-1 rounded font-bold uppercase tracking-widest">
-                    MATHEMATICS SERIES
-                  </span>
+                <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">
+                  [ VOL. 01 ]
+                </span>
 
-                  <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">
-                    [ VOL. 01 ]
-                  </span>
-                </div>
-
-                <p className="text-[12px] text-white/60 uppercase tracking-wider max-w-md">
-                  Explorations in compression logic and modular systems.
-                  Structure meeting geometry.
+                <p className="mt-3 text-[12px] text-white/60 uppercase tracking-wider max-w-md">
+                  Explorações vestíveis baseadas em lógica de compressão e sistemas modulares.
+                  Onde a estrutura encontra a geometria.
                 </p>
               </div>
             </div>
@@ -122,8 +118,8 @@ const HomeView: React.FC<Props> = ({
 
           {/* PRODUCT GRID */}
           <section className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {products.map((p, index) => {
-              const isCore = index === 0;
+            {products.map((p) => {
+              const isCore = p.isCore;
 
               return (
                 <div
@@ -132,9 +128,14 @@ const HomeView: React.FC<Props> = ({
                     isCore ? "scale-[1.03]" : ""
                   }`}
                 >
+                  {/* IMAGE */}
                   <div className="aspect-[3/4] overflow-hidden relative">
                     <img
-                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity grayscale contrast-125"
+                      className={`w-full h-full object-cover grayscale transition-opacity ${
+                        isCore
+                          ? "opacity-95 contrast-125 brightness-105"
+                          : "opacity-80 contrast-125 group-hover:opacity-100"
+                      }`}
                       src={p.image}
                       alt={p.name}
                     />
@@ -144,16 +145,9 @@ const HomeView: React.FC<Props> = ({
                         REF: {p.ref}
                       </span>
                     </div>
-
-                    {isCore && (
-                      <div className="absolute top-3 right-3 bg-primary/20 backdrop-blur-md px-2 py-0.5 rounded">
-                        <span className="text-[9px] font-bold text-primary tracking-widest uppercase">
-                          CORE PIECE
-                        </span>
-                      </div>
-                    )}
                   </div>
 
+                  {/* CONTENT */}
                   <div className="p-4">
                     <h3 className="text-xs font-bold tracking-widest uppercase mb-1">
                       {p.name}
