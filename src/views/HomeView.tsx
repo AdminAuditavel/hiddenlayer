@@ -56,102 +56,97 @@ const HomeView: React.FC<Props> = ({
         <div className="max-w-[1280px] mx-auto px-6">
 
           {/* HERO */}
-          <section className="mb-16 relative">
-          
+          <section className="mb-20 relative">
+
             {/* TECHNICAL GRID BACKGROUND */}
-            <div className="absolute inset-0 technical-grid opacity-[0.15] pointer-events-none"></div>
-          
+            <div className="absolute inset-0 technical-grid opacity-[0.08] pointer-events-none"></div>
+
             <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
-          
-              {/* LEFT SIDE — BRAND */}
+
+              {/* LEFT */}
               <div className="space-y-6">
                 <div className="text-[10px] font-medium text-primary tracking-widest uppercase">
                   [ ARCHIVE_VERSION_2.04 ]
                 </div>
-          
+
                 <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold leading-none tracking-tighter-minus uppercase">
                   HIDDEN<br />LAYER
                 </h1>
-          
+
                 <p className="text-[11px] font-medium tracking-widest-plus text-white/50 uppercase leading-relaxed max-w-[280px]">
                   REPRESENTATION BETWEEN<br />
                   INPUT AND OUTPUT
                 </p>
               </div>
-          
-              {/* RIGHT SIDE — SYSTEM STATUS */}
-              <div className="hidden lg:flex flex-col items-end justify-end text-right space-y-2 pb-2">
-                <span className="text-[10px] font-mono text-white/30 tracking-widest uppercase">
-                  SYSTEM STATUS: OPERATIONAL
+
+              {/* RIGHT */}
+              <div className="hidden lg:flex flex-col items-end text-right gap-2 text-[10px] tracking-widest uppercase text-white/30">
+                <span>SYSTEM STATUS: OPERATIONAL</span>
+                <span>ARCHIVE: HL-2024</span>
+                <span>SERIES LOADED: MATHEMATICS</span>
+                <span className="text-primary">LAYER STATE: ACTIVE</span>
+              </div>
+            </div>
+          </section>
+
+          {/* SERIES + GRID (EDITORIAL LAYOUT) */}
+          <section className="grid lg:grid-cols-[280px_1fr] gap-12 items-start">
+
+            {/* SERIES SIDEBAR */}
+            <aside className="space-y-6">
+              <div className="flex items-center gap-3">
+                <span className="text-[10px] bg-primary/10 text-primary px-2 py-1 rounded font-bold uppercase tracking-widest">
+                  MATHEMATICS SERIES
                 </span>
-                <span className="text-[10px] font-mono text-white/30 tracking-widest uppercase">
-                  ARCHIVE: HL-2024
-                </span>
-                <span className="text-[10px] font-mono text-white/30 tracking-widest uppercase">
-                  SERIES LOADED: MATHEMATICS
-                </span>
-                <span className="text-[10px] font-mono text-primary tracking-widest uppercase">
-                  LAYER STATE: ACTIVE
+                <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">
+                  [ VOL. 01 ]
                 </span>
               </div>
-          
-            </div>
-          </section>
 
-          {/* SERIES INTRO */}
-          <section className="mb-8 pt-12 border-t border-white/5">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-[10px] bg-primary/10 text-primary px-2 py-1 rounded font-bold uppercase tracking-widest">
-                MATHEMATICS SERIES
-              </span>
-              <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">
-                [ VOL. 01 ]
-              </span>
-            </div>
+              <p className="text-[12px] text-white/60 leading-relaxed uppercase tracking-wider">
+                Wearable explorations based on compression logic and modular
+                systems. Where structure meets absolute geometry.
+              </p>
+            </aside>
 
-            <p className="text-[12px] text-white/60 leading-relaxed uppercase tracking-wider max-w-xs">
-              Explorações vestíveis baseadas em algoritmos de compressão e lógica
-              de sistemas modulares. Onde o corte encontra a geometria absoluta.
-            </p>
-          </section>
+            {/* PRODUCT GRID */}
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {products.map((p) => (
+                <div
+                  key={p.id}
+                  onClick={() => navigateToDetail(p)}
+                  className="bg-surface rounded-lg overflow-hidden border border-white/5 group active:scale-[0.98] transition-transform"
+                >
+                  <div className="aspect-[3/4] overflow-hidden relative">
+                    <img
+                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity grayscale contrast-125"
+                      src={p.image}
+                      alt={p.name}
+                    />
 
-          {/* PRODUCTS GRID */}
-          <section className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {products.map((p) => (
-              <div
-                key={p.id}
-                onClick={() => navigateToDetail(p)}
-                className="bg-surface rounded-lg overflow-hidden border border-white/5 group active:scale-[0.98] transition-transform"
-              >
-                <div className="aspect-[3/4] overflow-hidden relative">
-                  <img
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity grayscale contrast-125"
-                    src={p.image}
-                    alt={p.name}
-                  />
+                    <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded">
+                      <span className="text-[9px] font-bold text-white/80 tracking-widest uppercase">
+                        REF: {p.ref}
+                      </span>
+                    </div>
+                  </div>
 
-                  <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded">
-                    <span className="text-[9px] font-bold text-white/80 tracking-widest uppercase">
-                      REF: {p.ref}
-                    </span>
+                  <div className="p-4">
+                    <h3 className="text-xs font-bold tracking-widest uppercase mb-1">
+                      {p.name}
+                    </h3>
+
+                    <p className="text-[9px] text-white/40 mb-4 uppercase tracking-wider">
+                      {p.category}
+                    </p>
+
+                    <button className="w-full py-2 border border-primary/30 text-primary text-[9px] font-bold uppercase tracking-widest rounded hover:bg-primary/10 transition-colors">
+                      OPEN DOCUMENTATION
+                    </button>
                   </div>
                 </div>
-
-                <div className="p-4">
-                  <h3 className="text-xs font-bold tracking-widest uppercase mb-1">
-                    {p.name}
-                  </h3>
-
-                  <p className="text-[9px] text-white/40 mb-4 uppercase tracking-wider">
-                    {p.category}
-                  </p>
-
-                  <button className="w-full py-2 border border-primary/30 text-primary text-[9px] font-bold uppercase tracking-widest rounded hover:bg-primary/10 transition-colors">
-                    OPEN DOCUMENTATION
-                  </button>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </section>
 
           {/* FOOTER */}
