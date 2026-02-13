@@ -66,7 +66,7 @@ const HomeView: React.FC<Props> = ({
       </nav>
 
       {/* CONTENT */}
-      <main className="pt-24 pb-20">
+      <main className="pt-24 pb-32">
         <div className="max-w-[1280px] mx-auto px-6">
 
           {/* HERO */}
