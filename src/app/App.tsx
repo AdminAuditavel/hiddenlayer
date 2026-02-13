@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { AppView, Product } from "../types";
 import { PRODUCTS } from "../data/products";
 
@@ -13,10 +13,6 @@ const App: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [logoError, setLogoError] = useState(false);
 
-  // Se você mover o svg para a pasta public/ na raiz do projeto, este path funciona.
-  // Se o arquivo ficar em src/public, este path NÃO funciona.
-  const logoSrc = useMemo(() => "/Logo-Ofical-HL-Branco.svg", []);
-
   const navigateToDetail = (product: Product) => {
     setSelectedProduct(product);
     setCurrentView(AppView.DETAIL);
@@ -28,11 +24,11 @@ const App: React.FC = () => {
       {/* HEADER */}
       <header className="w-full border-b border-neutral-800">
         <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
-          {/* Logo (com fallback HL) */}
+          {/* Logo */}
           <div className="flex items-center h-full">
             {!logoError ? (
               <img
-                src={logoSrc}
+                src="/Logo-Ofical-HL-Branco.svg"
                 alt="Hidden Layer"
                 className="h-[22px] w-auto block"
                 onError={() => setLogoError(true)}
@@ -42,7 +38,7 @@ const App: React.FC = () => {
             )}
           </div>
 
-          {/* Actions (Search + Bag) */}
+          {/* Actions */}
           <div className="flex items-center gap-5">
             <button
               type="button"
