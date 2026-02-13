@@ -69,11 +69,11 @@ const HomeView: React.FC<Props> = ({
                   [ ARCHIVE_VERSION_2.04 ]
                 </div>
 
-                <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold leading-none tracking-tighter-minus uppercase">
-                  HIDDEN<br />LAYER
-                </h1>
+               <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-none tracking-tighter-minus uppercase whitespace-nowrap">
+                HIDDEN LAYER
+              </h1>
 
-                <p className="text-[11px] font-medium tracking-widest-plus text-white/50 uppercase leading-relaxed max-w-[320px]">
+                <p className="text-[11px] font-medium tracking-widest-plus text-white/50 uppercase leading-none">
                   REPRESENTATION BETWEEN INPUT AND OUTPUT
                 </p>
               </div>
