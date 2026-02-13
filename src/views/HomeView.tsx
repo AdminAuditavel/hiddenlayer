@@ -56,32 +56,45 @@ const HomeView: React.FC<Props> = ({
         <div className="max-w-[1280px] mx-auto px-6">
 
           {/* HERO */}
-          <section className="mb-16">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
-
+          <section className="mb-16 relative">
+          
+            {/* TECHNICAL GRID BACKGROUND */}
+            <div className="absolute inset-0 technical-grid opacity-[0.15] pointer-events-none"></div>
+          
+            <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
+          
               {/* LEFT SIDE — BRAND */}
-              <div className="relative">
-                <div className="absolute -top-10 left-0 text-[10px] font-medium text-primary tracking-widest uppercase">
+              <div className="space-y-6">
+                <div className="text-[10px] font-medium text-primary tracking-widest uppercase">
                   [ ARCHIVE_VERSION_2.04 ]
                 </div>
-
-                <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold leading-none tracking-tighter-minus mb-6 uppercase">
+          
+                <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold leading-none tracking-tighter-minus uppercase">
                   HIDDEN<br />LAYER
                 </h1>
-
+          
                 <p className="text-[11px] font-medium tracking-widest-plus text-white/50 uppercase leading-relaxed max-w-[280px]">
-                  Representation between <br />input and output
+                  REPRESENTATION BETWEEN<br />
+                  INPUT AND OUTPUT
                 </p>
               </div>
-
-              {/* RIGHT SIDE — TECHNICAL INFO (DESKTOP ONLY) */}
-              <div className="hidden lg:flex flex-col items-end text-right gap-2 text-[10px] tracking-widest uppercase text-white/30">
-                <span>SYSTEM STATUS: OPERATIONAL</span>
-                <span>ARCHIVE: HL-2024</span>
-                <span>SERIES LOADED: MATHEMATICS</span>
-                <span>LAYER STATE: ACTIVE</span>
+          
+              {/* RIGHT SIDE — SYSTEM STATUS */}
+              <div className="hidden lg:flex flex-col items-end justify-end text-right space-y-2 pb-2">
+                <span className="text-[10px] font-mono text-white/30 tracking-widest uppercase">
+                  SYSTEM STATUS: OPERATIONAL
+                </span>
+                <span className="text-[10px] font-mono text-white/30 tracking-widest uppercase">
+                  ARCHIVE: HL-2024
+                </span>
+                <span className="text-[10px] font-mono text-white/30 tracking-widest uppercase">
+                  SERIES LOADED: MATHEMATICS
+                </span>
+                <span className="text-[10px] font-mono text-primary tracking-widest uppercase">
+                  LAYER STATE: ACTIVE
+                </span>
               </div>
-
+          
             </div>
           </section>
 
