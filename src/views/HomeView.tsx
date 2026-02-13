@@ -29,7 +29,7 @@ const HomeView: React.FC<Props> = ({
               <img
                 src="/Logo-Ofical-HL-Branco.svg"
                 alt="Hidden Layer"
-                className="h-[22px] w-auto block"
+                className="h-6 w-auto"
                 onError={() => setLogoError(true)}
               />
             ) : (
