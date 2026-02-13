@@ -67,21 +67,17 @@ const HomeView: React.FC<Props> = ({
         </div>
       </nav>
 
-      {/* Ajuste do padding-top para compensar a navbar fixa (h-14 + abas) */}
-      <main className="pt-32 pb-20">
+      {/* content */}
+      <main className="pt-28 pb-20">
         <div className="max-w-[1280px] mx-auto px-6">
           {/* HERO */}
-          <section className="mb-16 relative">
+          <section className="mb-10 relative">
             {/* TECHNICAL GRID */}
             <div className="absolute inset-0 technical-grid opacity-[0.07] pointer-events-none"></div>
 
-            <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
+            <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-end">
               {/* LEFT */}
-              <div className="space-y-6">
-                <div className="text-[10px] font-medium text-primary tracking-widest uppercase">
-                  [ ARCHIVE_VERSION_2.04 ]
-                </div>
-
+              <div className="space-y-4">
                 <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-none tracking-tighter-minus uppercase whitespace-nowrap">
                   HIDDEN LAYER
                 </h1>
