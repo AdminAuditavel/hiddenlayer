@@ -58,9 +58,9 @@ const HomeView: React.FC<Props> = ({
                 Mathematics
               </li>
 
-              <li className="text-white/25 cursor-default">System</li>
-              <li className="text-white/25 cursor-default">Signal</li>
-              <li className="text-white/25 cursor-default">Field</li>
+              <li className="text-white/30 cursor-default">System</li>
+              <li className="text-white/30 cursor-default">Signal</li>
+              <li className="text-white/30 cursor-default">Field</li>
             </ul>
           </div>
         </div>
@@ -88,7 +88,7 @@ const HomeView: React.FC<Props> = ({
           {/* LAYER TRANSITION */}
           <section className="py-20 flex items-center justify-center">
             <div className="text-center space-y-3">
-              <div className="text-[9px] tracking-[0.4em] uppercase text-white/30">
+              <div className="text-[9px] tracking-[0.4em] uppercase text-white/40">
                 Entering Layer
               </div>
 
@@ -163,11 +163,11 @@ const HomeView: React.FC<Props> = ({
           {/* FUTURE STATES */}
           <section className="py-20 flex items-center justify-center">
             <div className="text-center space-y-3">
-              <div className="text-[9px] tracking-[0.4em] uppercase text-white/20">
+              <div className="text-[9px] tracking-[0.4em] uppercase text-white/30">
                 Additional States Pending
               </div>
 
-              <div className="text-[10px] tracking-widest uppercase text-white/30">
+              <div className="text-[10px] tracking-widest uppercase text-white/40">
                 Next Layer Loading
               </div>
             </div>
