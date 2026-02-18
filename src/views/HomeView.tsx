@@ -87,11 +87,11 @@ const HomeView: React.FC<Props> = ({
           {/* LAYER TRANSITION */}
           <section className="py-20 flex items-center justify-center">
             <div className="text-center space-y-3">
-              <div className="text-[9px] tracking-[0.4em] uppercase text-white/30">
+              <div className="text-[11px] tracking-[0.4em] uppercase text-white/30">
                 Entering Layer
               </div>
           
-              <div className="text-[11px] tracking-widest uppercase text-white/50">
+              <div className="text-[13px] tracking-widest uppercase text-white/50">
                 Mathematics Series — Vol.01
               </div>
             </div>
