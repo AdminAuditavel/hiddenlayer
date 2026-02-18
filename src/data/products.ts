@@ -9,8 +9,7 @@ export const PRODUCTS: Product[] = [
     category: "SHELL SYSTEM V1",
     description:
       "Uma representação visual da taxa de variação dentro de um sistema fechado. Arquitetado para o movimento, otimizado para a permanência.",
-    image:
-      image: gradientModel,
+    image: gradientModel,
     hotprintiUrl: "https://hotprinti.com.br/seu-link-produto-1",
   },
   {
