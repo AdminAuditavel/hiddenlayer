@@ -159,7 +159,7 @@ const HomeView: React.FC<Props> = ({
           </section>
 
           {/* SERIES HEADER (after discovery) */}
-          <section className="mt-16 mb-10 border-t border-white/10 pt-6">
+          <section className="mt-24 mb-10 border-t border-white/10 pt-6">
             <div className="flex flex-col gap-4">
               <div>
                 <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">
