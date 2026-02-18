@@ -165,8 +165,7 @@ const HomeView: React.FC<Props> = ({
             <div className="flex flex-col items-center text-center gap-4">
               <div className="max-w-md">
                 <p className="text-[12px] text-white/60 uppercase tracking-wider">
-                  Explorações vestíveis baseadas em lógica de compressão e sistemas modulares.
-                  Onde a estrutura encontra a geometria.
+                  Explorações vestíveis baseadas em lógica de compressão e sistemas modulares. Onde a estrutura encontra a geometria.
                 </p>
               </div>
             </div>
