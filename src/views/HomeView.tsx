@@ -206,11 +206,11 @@ const HomeView: React.FC<Props> = ({
           <footer className="mt-24 py-16 border-t border-white/10">
             <div className="flex flex-col items-center text-center gap-10">
           
-              <div className="text-[10px] font-bold tracking-widest uppercase text-white/30">
+              <div className="text-[10px] font-bold tracking-widest uppercase text-white/50">
                 // SYSTEM STATE: OPERATIONAL
               </div>
           
-              <div className="text-[8px] text-white/20 uppercase tracking-[0.3em] font-medium leading-loose">
+              <div className="text-[8px] text-white/40 uppercase tracking-[0.3em] font-medium leading-loose">
                 Copyright © Hidden Layer System Solutions.
                 <br />
                 Developed under mathematical paradigms.
