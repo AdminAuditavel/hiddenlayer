@@ -105,7 +105,7 @@ const HomeView: React.FC<Props> = ({
               return (
                 <div
                   key={p.id}
-                  className={`bg-surface rounded-lg overflow-hidden border border-white/5 group transition-transform hover:scale-[1.015] ${
+                  className={`bg-[#0b0b0b] rounded-lg overflow-hidden border border-white/[0.06] group transition-transform hover:scale-[1.015] ${
                     isCore ? "scale-[1.03]" : ""
                   }`}
                 >
