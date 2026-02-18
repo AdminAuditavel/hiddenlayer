@@ -160,19 +160,6 @@ const HomeView: React.FC<Props> = ({
             })}
           </section>
 
-          {/* FUTURE STATES */}
-          <section className="py-20 flex items-center justify-center">
-            <div className="text-center space-y-3">
-              <div className="text-[9px] tracking-[0.4em] uppercase text-white/30">
-                Additional States Pending
-              </div>
-
-              <div className="text-[10px] tracking-widest uppercase text-white/40">
-                Next Layer Loading
-              </div>
-            </div>
-          </section>
-
           {/* SERIES HEADER */}
           <section className="mt-24 mb-10 border-t border-white/10 pt-6">
             <div className="flex flex-col items-center text-center gap-4">
@@ -189,8 +176,21 @@ const HomeView: React.FC<Props> = ({
             </div>
           </section>
 
+          {/* FUTURE STATES */}
+          <section className="py-20 flex items-center justify-center">
+            <div className="text-center space-y-3">
+              <div className="text-[9px] tracking-[0.4em] uppercase text-white/30">
+                Additional States Pending
+              </div>
+
+              <div className="text-[10px] tracking-widest uppercase text-white/40">
+                Next Layer Loading
+              </div>
+            </div>
+          </section>
+
           {/* SYSTEM UPDATE */}
-          <section className="py-16 flex items-center justify-center">
+          <section className="py-12 flex items-center justify-center">
             <div className="text-center space-y-2">
               <div className="text-[9px] tracking-[0.35em] uppercase text-white/20">
                 System Update
