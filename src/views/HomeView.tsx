@@ -1,4 +1,4 @@
-//src/views/HomeView.tsx
+// src/views/HomeView.tsx
 
 import React, { useState } from "react";
 import { Product, AppView } from "../types";
@@ -70,33 +70,17 @@ const HomeView: React.FC<Props> = ({
         <div className="max-w-[1280px] mx-auto px-6">
 
           {/* HERO */}
-          <section className="mb-12 relative">
+          <section className="relative flex items-center justify-center min-h-[80vh] mb-20">
             <div className="absolute inset-0 technical-grid opacity-[0.07] pointer-events-none"></div>
 
-            <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-              {/* LEFT */}
-              <div className="space-y-3">
-                <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-none tracking-tighter-minus uppercase whitespace-nowrap -translate-y-[2px]">
-                  HIDDEN LAYER
-                </h1>
+            <div className="relative text-center">
+              <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-none tracking-tighter-minus uppercase">
+                HIDDEN LAYER
+              </h1>
 
-                <p className="text-[11px] font-medium tracking-widest-plus text-white/50 uppercase leading-tight">
-                  REPRESENTATION BETWEEN INPUT AND OUTPUT
-                </p>
-
-                <div className="pt-3 text-[10px] uppercase tracking-widest text-white/40">
-                  <div>MATHEMATICS SERIES — VOL.01</div>
-                  <div className="text-primary">AVAILABLE NOW</div>
-                </div>
-              </div>
-
-              {/* RIGHT */}
-              <div className="hidden lg:flex flex-col items-end text-right gap-2 text-[10px] tracking-widest uppercase text-white/30 mt-6">
-                <span>SYSTEM STATUS: OPERATIONAL</span>
-                <span>ARCHIVE: HL-2024</span>
-                <span>SERIES LOADED: MATHEMATICS</span>
-                <span className="text-primary">LAYER STATE: ACTIVE</span>
-              </div>
+              <p className="mt-6 text-[11px] font-medium tracking-widest-plus text-white/60 uppercase">
+                Between input and output.
+              </p>
             </div>
           </section>
 
