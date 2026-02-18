@@ -19,14 +19,15 @@ const HomeView: React.FC<Props> = ({
   const [logoError, setLogoError] = useState(false);
 
   return (
-    <div className="animate-in fade-in duration-500">
+    <div className="animate-in fade-in duration-500 bg-[#f6f6f6] text-black">
+      
       {/* NAVBAR */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#f6f6f6]/80 backdrop-blur-md border-b border-black/5">
         <div className="max-w-[1280px] mx-auto px-6 h-12 flex items-center justify-between">
           <div className="flex items-center">
             {!logoError ? (
               <img
-                src="/Logo-HL-Branco.svg"
+                src="/Logo-HL-Preto.svg"
                 alt="Hidden Layer"
                 className="h-6 w-auto"
                 onError={() => setLogoError(true)}
@@ -37,8 +38,8 @@ const HomeView: React.FC<Props> = ({
           </div>
 
           <div className="flex gap-4">
-            <button className="material-icons text-white/70">search</button>
-            <button className="material-icons text-white/70">
+            <button className="material-icons text-black/60">search</button>
+            <button className="material-icons text-black/60">
               shopping_bag
             </button>
           </div>
@@ -51,16 +52,16 @@ const HomeView: React.FC<Props> = ({
                 className={`pb-1 ${
                   currentView === AppView.HOME
                     ? "text-primary border-b border-primary"
-                    : "text-white/60"
+                    : "text-black/50"
                 }`}
                 onClick={() => setCurrentView(AppView.HOME)}
               >
                 Mathematics
               </li>
 
-              <li className="text-white/30 cursor-default">System</li>
-              <li className="text-white/30 cursor-default">Signal</li>
-              <li className="text-white/30 cursor-default">Field</li>
+              <li className="text-black/30 cursor-default">System</li>
+              <li className="text-black/30 cursor-default">Signal</li>
+              <li className="text-black/30 cursor-default">Field</li>
             </ul>
           </div>
         </div>
@@ -72,14 +73,12 @@ const HomeView: React.FC<Props> = ({
 
           {/* HERO */}
           <section className="relative flex items-center justify-center min-h-[80vh] mb-20">
-            <div className="absolute inset-0 technical-grid opacity-[0.07] pointer-events-none"></div>
-
             <div className="relative text-center">
               <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-none tracking-tighter-minus uppercase">
                 HIDDEN LAYER
               </h1>
 
-              <p className="mt-6 text-[11px] font-medium tracking-widest-plus text-white/60 uppercase">
+              <p className="mt-6 text-[11px] font-medium tracking-widest-plus text-black/50 uppercase">
                 Between input and output.
               </p>
             </div>
@@ -88,47 +87,43 @@ const HomeView: React.FC<Props> = ({
           {/* LAYER TRANSITION */}
           <section className="py-20 flex items-center justify-center">
             <div className="text-center space-y-3">
-              <div className="text-[9px] tracking-[0.4em] uppercase text-white/40">
+              <div className="text-[9px] tracking-[0.4em] uppercase text-black/40">
                 Entering Layer
               </div>
 
-              <div className="text-[11px] tracking-widest uppercase text-white/50">
+              <div className="text-[11px] tracking-widest uppercase text-black/50">
                 Mathematics Series — Vol.01
               </div>
             </div>
           </section>
 
-          {/* CURRENT STATE LABEL */}
-          <div className="mb-6 text-[9px] tracking-[0.35em] uppercase text-white/30">
+          {/* CURRENT STATE */}
+          <div className="mb-6 text-[9px] tracking-[0.35em] uppercase text-black/40">
             Current State
           </div>
 
           {/* PRODUCT GRID */}
-          <section className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <section className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {products.map((p) => {
               const isCore = p.isCore;
 
               return (
                 <div
                   key={p.id}
-                  className={`bg-[#0b0b0b] rounded-lg overflow-hidden border border-white/[0.06] group transition-transform hover:scale-[1.015] ${
-                    isCore ? "scale-[1.03]" : ""
+                  className={`bg-white rounded-lg overflow-hidden border border-black/5 group transition-transform hover:scale-[1.015] ${
+                    isCore ? "scale-[1.02]" : ""
                   }`}
                 >
                   {/* IMAGE */}
-                  <div className="aspect-[3/4] overflow-hidden relative">
+                  <div className="aspect-[3/4] overflow-hidden relative bg-[#f2f2f2]">
                     <img
-                      className={`w-full h-full object-cover grayscale transition-opacity ${
-                        isCore
-                          ? "opacity-95 contrast-125 brightness-105"
-                          : "opacity-80 contrast-125 group-hover:opacity-95"
-                      }`}
+                      className="w-full h-full object-cover transition-opacity group-hover:opacity-95"
                       src={p.image}
                       alt={p.name}
                     />
 
-                    <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded">
-                      <span className="text-[9px] font-bold text-white/80 tracking-widest uppercase">
+                    <div className="absolute top-3 left-3 bg-white/80 backdrop-blur-sm px-2 py-0.5 rounded border border-black/5">
+                      <span className="text-[9px] font-bold text-black/70 tracking-widest uppercase">
                         REF: {p.ref}
                       </span>
                     </div>
@@ -140,7 +135,7 @@ const HomeView: React.FC<Props> = ({
                       {p.name}
                     </h3>
 
-                    <p className="text-[9px] text-white/40 uppercase tracking-wider mb-3">
+                    <p className="text-[9px] text-black/50 uppercase tracking-wider mb-3">
                       {p.category}
                     </p>
 
@@ -150,7 +145,7 @@ const HomeView: React.FC<Props> = ({
                       rel="noopener noreferrer"
                       className="block"
                     >
-                      <button className="w-full py-2 border border-white/20 text-white/60 text-[9px] font-bold uppercase tracking-widest rounded hover:border-primary/40 hover:text-primary transition-colors">
+                      <button className="w-full py-2 border border-black/20 text-black/60 text-[9px] font-bold uppercase tracking-widest rounded hover:border-primary/60 hover:text-primary transition-colors">
                         Ver produto
                       </button>
                     </a>
@@ -160,59 +155,45 @@ const HomeView: React.FC<Props> = ({
             })}
           </section>
 
-          {/* SERIES HEADER */}
-          <section className="mt-12 mb-10 pt-6">
+          {/* CONCEPT NOTE */}
+          <section className="mt-16 mb-10 pt-6">
             <div className="flex flex-col items-center text-center gap-4">
               <div className="max-w-md">
-                <p className="text-[12px] text-white/60 uppercase tracking-wider">
-                  Explorações vestíveis baseadas em lógica de compressão e sistemas modulares. Onde a estrutura encontra a geometria.
+                <p className="text-[12px] text-black/50 uppercase tracking-wider">
+                  Explorações vestíveis baseadas em lógica de compressão e sistemas modulares. 
+                  Onde a estrutura encontra a geometria.
                 </p>
               </div>
             </div>
-          
-            <div className="mt-12 border-t border-white/10"></div>
+
+            <div className="mt-12 border-t border-black/10"></div>
           </section>
 
           {/* FUTURE STATES */}
-          <section className="py-20 flex items-center justify-center">
+          <section className="py-16 flex items-center justify-center">
             <div className="text-center space-y-3">
-              <div className="text-[9px] tracking-[0.4em] uppercase text-white/30">
+              <div className="text-[9px] tracking-[0.4em] uppercase text-black/30">
                 Additional States Pending
               </div>
 
-              <div className="text-[10px] tracking-widest uppercase text-white/40">
+              <div className="text-[10px] tracking-widest uppercase text-black/40">
                 Next Layer Loading
               </div>
             </div>
           </section>
 
-          {/* SYSTEM UPDATE */}
-          <section className="py-12 flex items-center justify-center">
-            <div className="text-center space-y-2">
-              <div className="text-[9px] tracking-[0.35em] uppercase text-white/20">
-                System Update
-              </div>
-
-              <div className="text-[10px] tracking-widest uppercase text-white/40">
-                Monitoring next state transition
-              </div>
-            </div>
-          </section>
-
           {/* FOOTER */}
-          <footer className="mt-24 py-16 border-t border-white/10">
-            <div className="flex flex-col items-center text-center gap-10">
-          
-              <div className="text-[10px] font-bold tracking-widest uppercase text-white/50">
+          <footer className="mt-20 py-16 border-t border-black/10">
+            <div className="flex flex-col items-center text-center gap-8">
+              <div className="text-[10px] font-bold tracking-widest uppercase text-black/50">
                 // SYSTEM STATE: OPERATIONAL
               </div>
-          
-              <div className="text-[8px] text-white/40 uppercase tracking-[0.3em] font-medium leading-loose">
+
+              <div className="text-[8px] text-black/40 uppercase tracking-[0.3em] font-medium leading-loose">
                 Copyright © Hidden Layer System Solutions.
                 <br />
                 Developed under mathematical paradigms.
               </div>
-          
             </div>
           </footer>
 
