@@ -1,5 +1,5 @@
 import { Product } from "../types";
-import gradientModel from "../products/Modelo-Descolado-Blusa-Branca-GRADIENT";
+import gradientModel from "../products/Modelo-Descolado-Blusa-Branca-GRADIENT.png";
 
 export const PRODUCTS: Product[] = [
   {
