@@ -161,15 +161,13 @@ const HomeView: React.FC<Props> = ({
           </section>
 
           {/* SERIES HEADER */}
-          <section className="mt-24 mb-10 pt-6">
+          <section className="mt-12 mb-10 pt-6">
             <div className="flex flex-col items-center text-center gap-4">
               <div className="max-w-md">
-          
                 <p className="text-[12px] text-white/60 uppercase tracking-wider">
                   Explorações vestíveis baseadas em lógica de compressão e sistemas modulares.
                   Onde a estrutura encontra a geometria.
                 </p>
-          
               </div>
             </div>
           
