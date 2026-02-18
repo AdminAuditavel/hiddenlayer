@@ -46,20 +46,21 @@ const HomeView: React.FC<Props> = ({
 
         <div className="max-w-[1280px] mx-auto px-6 pb-4">
           <div className="overflow-x-auto hide-scrollbar">
-            <ul className="flex space-x-8 text-[10px] font-medium tracking-widest-plus uppercase text-white/60 whitespace-nowrap">
+            <ul className="flex space-x-8 text-[10px] font-medium tracking-widest-plus uppercase whitespace-nowrap">
               <li
                 className={`pb-1 ${
                   currentView === AppView.HOME
                     ? "text-primary border-b border-primary"
-                    : ""
+                    : "text-white/60"
                 }`}
                 onClick={() => setCurrentView(AppView.HOME)}
               >
                 Mathematics
               </li>
-              <li>System</li>
-              <li>Signal</li>
-              <li>Field</li>
+
+              <li className="text-white/25 cursor-default">System</li>
+              <li className="text-white/25 cursor-default">Signal</li>
+              <li className="text-white/25 cursor-default">Field</li>
             </ul>
           </div>
         </div>
@@ -96,6 +97,11 @@ const HomeView: React.FC<Props> = ({
               </div>
             </div>
           </section>
+
+          {/* CURRENT STATE LABEL */}
+          <div className="mb-6 text-[9px] tracking-[0.35em] uppercase text-white/30">
+            Current State
+          </div>
 
           {/* PRODUCT GRID */}
           <section className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -134,13 +140,9 @@ const HomeView: React.FC<Props> = ({
                       {p.name}
                     </h3>
 
-                    <p className="text-[9px] text-white/40 uppercase tracking-wider mb-2">
+                    <p className="text-[9px] text-white/40 uppercase tracking-wider mb-3">
                       {p.category}
                     </p>
-
-                    <div className="text-[8px] text-white/30 uppercase tracking-widest mb-3">
-                      Disponível via HotPrinti
-                    </div>
 
                     <a
                       href={p.hotprintiUrl}
@@ -158,7 +160,20 @@ const HomeView: React.FC<Props> = ({
             })}
           </section>
 
-          {/* SERIES HEADER (after discovery) */}
+          {/* FUTURE STATES */}
+          <section className="py-20 flex items-center justify-center">
+            <div className="text-center space-y-3">
+              <div className="text-[9px] tracking-[0.4em] uppercase text-white/20">
+                Additional States Pending
+              </div>
+
+              <div className="text-[10px] tracking-widest uppercase text-white/30">
+                Next Layer Loading
+              </div>
+            </div>
+          </section>
+
+          {/* SERIES HEADER */}
           <section className="mt-24 mb-10 border-t border-white/10 pt-6">
             <div className="flex flex-col gap-4">
               <div>
@@ -170,6 +185,19 @@ const HomeView: React.FC<Props> = ({
                   Explorações vestíveis baseadas em lógica de compressão e sistemas modulares.
                   Onde a estrutura encontra a geometria.
                 </p>
+              </div>
+            </div>
+          </section>
+
+          {/* SYSTEM UPDATE */}
+          <section className="py-16 flex items-center justify-center">
+            <div className="text-center space-y-2">
+              <div className="text-[9px] tracking-[0.35em] uppercase text-white/20">
+                System Update
+              </div>
+
+              <div className="text-[10px] tracking-widest uppercase text-white/40">
+                Monitoring next state transition
               </div>
             </div>
           </section>
