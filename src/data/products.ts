@@ -1,4 +1,5 @@
 import { Product } from "../types";
+import gradientModel from "../products/Modelo-Descolado-Preta-GRADIENT.png";
 
 export const PRODUCTS: Product[] = [
   {
@@ -9,7 +10,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Uma representação visual da taxa de variação dentro de um sistema fechado. Arquitetado para o movimento, otimizado para a permanência.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAMD2TXPMTgiFOHEKdvePhGoS01EMV3XHiqenrD5bA_v0ZZQdKgQQD38sinOB-5MJmGEmfaMoukRjl41y-zuO_jhjKyac9zIL3sspEmNxs16tTtGB74YF0CbxmTxtqA5d0yIJMlUkAikaNKuzg5UdlUJAyujkdE6OEY0d6ZSRzyZskXzmfSJ41_Id5LO087NdGjZxvnsY0KwlSUrIpARdAtNbK0-5LfJXKTIVquV8Bo7P7twlBrAyLVRE368YsAYpf3d3xiFxgAvTA",
+      image: gradientModel,
     hotprintiUrl: "https://hotprinti.com.br/seu-link-produto-1",
   },
   {
