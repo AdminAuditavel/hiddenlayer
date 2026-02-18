@@ -203,17 +203,22 @@ const HomeView: React.FC<Props> = ({
           </section>
 
           {/* FOOTER */}
-          <footer className="mt-24 py-12 border-t border-white/10">
-            <div className="text-[10px] font-bold tracking-widest uppercase text-white/30">
-              // SYSTEM STATE: OPERATIONAL
-            </div>
-
-            <div className="mt-12 text-[8px] text-white/20 uppercase tracking-[0.3em] font-medium leading-loose">
-              Copyright © Hidden Layer System Solutions.
-              <br />
-              Developed under mathematical paradigms.
+          <footer className="mt-24 py-16 border-t border-white/10">
+            <div className="flex flex-col items-center text-center gap-10">
+          
+              <div className="text-[10px] font-bold tracking-widest uppercase text-white/30">
+                // SYSTEM STATE: OPERATIONAL
+              </div>
+          
+              <div className="text-[8px] text-white/20 uppercase tracking-[0.3em] font-medium leading-loose">
+                Copyright © Hidden Layer System Solutions.
+                <br />
+                Developed under mathematical paradigms.
+              </div>
+          
             </div>
           </footer>
+
         </div>
       </main>
     </div>
