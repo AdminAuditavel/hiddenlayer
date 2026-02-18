@@ -87,28 +87,12 @@ const HomeView: React.FC<Props> = ({
           {/* LAYER TRANSITION */}
           <section className="py-20 flex items-center justify-center">
             <div className="text-center space-y-3">
-              <div className="text-[10px] tracking-[0.4em] uppercase text-white/30">
+              <div className="text-[9px] tracking-[0.4em] uppercase text-white/30">
                 Entering Layer
               </div>
-          
-              <div className="text-[12px] tracking-widest uppercase text-white/50">
+
+              <div className="text-[11px] tracking-widest uppercase text-white/50">
                 Mathematics Series — Vol.01
-              </div>
-            </div>
-          </section>
-
-          {/* SERIES HEADER */}
-          <section className="mb-10 border-t border-white/10 pt-6">
-            <div className="flex flex-col gap-4">
-              <div>
-                <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">
-                  [ VOL. 01 ]
-                </span>
-
-                <p className="mt-3 text-[12px] text-white/60 uppercase tracking-wider max-w-md">
-                  Explorações vestíveis baseadas em lógica de compressão e sistemas modulares.
-                  Onde a estrutura encontra a geometria.
-                </p>
               </div>
             </div>
           </section>
@@ -121,7 +105,7 @@ const HomeView: React.FC<Props> = ({
               return (
                 <div
                   key={p.id}
-                  className={`bg-surface rounded-lg overflow-hidden border border-white/5 group transition-transform ${
+                  className={`bg-surface rounded-lg overflow-hidden border border-white/5 group transition-transform hover:scale-[1.015] ${
                     isCore ? "scale-[1.03]" : ""
                   }`}
                 >
@@ -131,7 +115,7 @@ const HomeView: React.FC<Props> = ({
                       className={`w-full h-full object-cover grayscale transition-opacity ${
                         isCore
                           ? "opacity-95 contrast-125 brightness-105"
-                          : "opacity-80 contrast-125 group-hover:opacity-100"
+                          : "opacity-80 contrast-125 group-hover:opacity-95"
                       }`}
                       src={p.image}
                       alt={p.name}
@@ -164,7 +148,7 @@ const HomeView: React.FC<Props> = ({
                       rel="noopener noreferrer"
                       className="block"
                     >
-                      <button className="w-full py-2 border border-primary/30 text-primary text-[9px] font-bold uppercase tracking-widest rounded hover:bg-primary/10 transition-colors">
+                      <button className="w-full py-2 border border-white/20 text-white/60 text-[9px] font-bold uppercase tracking-widest rounded hover:border-primary/40 hover:text-primary transition-colors">
                         Ver produto
                       </button>
                     </a>
@@ -172,6 +156,22 @@ const HomeView: React.FC<Props> = ({
                 </div>
               );
             })}
+          </section>
+
+          {/* SERIES HEADER (after discovery) */}
+          <section className="mt-16 mb-10 border-t border-white/10 pt-6">
+            <div className="flex flex-col gap-4">
+              <div>
+                <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">
+                  [ VOL. 01 ]
+                </span>
+
+                <p className="mt-3 text-[12px] text-white/60 uppercase tracking-wider max-w-md">
+                  Explorações vestíveis baseadas em lógica de compressão e sistemas modulares.
+                  Onde a estrutura encontra a geometria.
+                </p>
+              </div>
+            </div>
           </section>
 
           {/* FOOTER */}
