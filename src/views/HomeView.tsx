@@ -175,13 +175,13 @@ const HomeView: React.FC<Props> = ({
 
           {/* SERIES HEADER */}
           <section className="mt-24 mb-10 border-t border-white/10 pt-6">
-            <div className="flex flex-col gap-4">
-              <div>
+            <div className="flex flex-col items-center text-center gap-4">
+              <div className="max-w-md">
                 <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">
                   [ VOL. 01 ]
                 </span>
 
-                <p className="mt-3 text-[12px] text-white/60 uppercase tracking-wider max-w-md">
+                <p className="mt-3 text-[12px] text-white/60 uppercase tracking-wider">
                   Explorações vestíveis baseadas em lógica de compressão e sistemas modulares.
                   Onde a estrutura encontra a geometria.
                 </p>
