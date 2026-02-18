@@ -84,6 +84,19 @@ const HomeView: React.FC<Props> = ({
             </div>
           </section>
 
+          {/* LAYER TRANSITION */}
+          <section className="py-20 flex items-center justify-center">
+            <div className="text-center space-y-3">
+              <div className="text-[9px] tracking-[0.4em] uppercase text-white/30">
+                Entering Layer
+              </div>
+          
+              <div className="text-[11px] tracking-widest uppercase text-white/50">
+                Mathematics Series — Vol.01
+              </div>
+            </div>
+          </section>
+
           {/* SERIES HEADER */}
           <section className="mb-10 border-t border-white/10 pt-6">
             <div className="flex flex-col gap-4">
