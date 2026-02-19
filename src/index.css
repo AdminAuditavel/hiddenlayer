@@ -182,3 +182,22 @@ img {
     filter: none;
   }
 }
+
+/* ---------- HL TEASER PATTERN ---------- */
+
+@keyframes hl-pattern {
+  0% {
+    gap: 12px;
+  }
+  50% {
+    gap: 6px;
+  }
+  100% {
+    gap: 2px;
+  }
+}
+
+.hl-pattern {
+  display: flex;
+  animation: hl-pattern 3s ease forwards;
+}
