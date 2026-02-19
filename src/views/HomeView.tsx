@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Product, AppView } from "../types";
 
-import HLLoading from "../components/HLLoading";
+import HLPatternTeaser from "../components/HLPatternTeaser";
 
 import systemBaseMockup from "../products/Camisa-Modelo-Descolado-Cinza-BASE.png";
 
@@ -73,11 +73,11 @@ const HomeView: React.FC<Props> = ({
 }) => {
   const [logoError, setLogoError] = useState(false);
 
-  // HL ritual loading (curto)
-  const [isLoading, setIsLoading] = useState(true);
+  // Teaser reveal (só para MTH-02 no grid Mathematics)
+  const [reveal, setReveal] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setIsLoading(false), 1400);
+    const t = setTimeout(() => setReveal(true), 3200);
     return () => clearTimeout(t);
   }, []);
 
@@ -135,8 +135,7 @@ const HomeView: React.FC<Props> = ({
         const visible = obsEntries
           .filter((e) => e.isIntersecting)
           .sort(
-            (a, b) =>
-              (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0)
+            (a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0)
           )[0];
 
         if (!visible) return;
@@ -158,8 +157,6 @@ const HomeView: React.FC<Props> = ({
 
   return (
     <div className="animate-in fade-in duration-500 bg-[#f6f6f6] text-black">
-      {isLoading && <HLLoading />}
-
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#f6f6f6]/80 backdrop-blur-md border-b border-black/5">
         <div className="max-w-[1280px] mx-auto px-6 h-12 flex items-center justify-between">
@@ -299,12 +296,17 @@ const HomeView: React.FC<Props> = ({
                       isCore ? "scale-[1.02]" : "hover:scale-[1.015]"
                     }`}
                   >
+                    {/* IMAGE (teaser only for MTH-02 until reveal) */}
                     <div className="aspect-[3/4] bg-[#f2f2f2] relative overflow-hidden">
-                      <img
-                        src={p.image}
-                        alt={p.name}
-                        className="w-full h-full object-cover"
-                      />
+                      {p.ref === "MTH-02" && !reveal ? (
+                        <HLPatternTeaser />
+                      ) : (
+                        <img
+                          src={p.image}
+                          alt={p.name}
+                          className="w-full h-full object-cover"
+                        />
+                      )}
 
                       <div className="absolute top-3 left-3 bg-white/70 backdrop-blur px-2 py-0.5 rounded border border-black/5">
                         <span className="text-[8px] uppercase tracking-[0.25em] text-black/70 font-bold">
