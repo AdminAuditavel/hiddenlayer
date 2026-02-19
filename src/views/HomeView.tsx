@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Product, AppView } from "../types";
 
-import systemBaseMockup from "../products/Modelo-Descolado-Blusa-Cinza-BASE.png";
+import systemBaseMockup from "../products/Camisa-Modelo-Descolado-Cinza-BASE.png";
 
 type Props = {
   products: Product[];
