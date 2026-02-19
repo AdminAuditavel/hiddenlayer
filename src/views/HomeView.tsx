@@ -180,20 +180,21 @@ const HomeView: React.FC<Props> = ({
                   </div>
                 </div>
           
-                {/* CONTENT */}
-                <div className="p-6 text-center">
-                  <div className="text-xs font-bold tracking-widest uppercase mb-2">
-                    SYSTEM — LATENT STATE
-                  </div>
-          
-                  <div className="text-[9px] text-black/40 uppercase tracking-[0.25em]">
-                    Structural Layer Preview
-                  </div>
+               {/* CONTENT */}
+              <div className="p-6 text-center">
+                <div className="text-xs font-bold tracking-widest uppercase mb-2">
+                  SYSTEM SERIES
                 </div>
-          
+              
+                <div className="text-[9px] text-black/40 uppercase tracking-[0.25em] mb-4">
+                  Structural Layer Emerging
+                </div>
+              
+                <button className="px-6 py-2 border border-black/20 text-[9px] font-bold uppercase tracking-[0.3em] text-black/60 rounded hover:border-primary/60 hover:text-primary transition-colors">
+                  Request Access
+                </button>
               </div>
             </div>
-          
           </section>
 
           {/* CONCEPT NOTE */}
