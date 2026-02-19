@@ -22,9 +22,9 @@ const HomeView: React.FC<Props> = ({
 
   // ⭐ refs
   const mathRef = useRef<HTMLDivElement>(null);
-  const systemRef = useRef<HTMLElement>(null);
-  const signalRef = useRef<HTMLElement>(null);
-  const fieldRef = useRef<HTMLElement>(null);
+  const systemRef = useRef<HTMLDivElement>(null);
+  const signalRef = useRef<HTMLDivElement>(null);
+  const fieldRef = useRef<HTMLDivElement>(null);
 
   // ⭐ active section (menu reage ao scroll)
   const [activeSection, setActiveSection] = useState<SectionId>("MATHEMATICS");
@@ -52,7 +52,7 @@ const HomeView: React.FC<Props> = ({
     const target = sections.find((s) => s.id === id)?.ref.current;
     if (!target) return;
 
-    // troca o highlight no clique (UX instantânea)
+    // UX instantânea
     setActiveSection(id);
 
     target.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -84,7 +84,7 @@ const HomeView: React.FC<Props> = ({
         if (match) setActiveSection(match.id);
       },
       {
-        // janela de ativação (ajustada para navbar fixa)
+        // ajusta para navbar fixa
         root: null,
         rootMargin: "-25% 0px -60% 0px",
         threshold: [0.05, 0.1, 0.2, 0.35, 0.5, 0.75],
@@ -371,14 +371,31 @@ const HomeView: React.FC<Props> = ({
             </div>
           </section>
 
-          {/* ⭐ seção Signal marcada (Future states) */}
-          <section ref={signalRef} className="py-16 flex justify-center">
-            <div className="text-center space-y-3">
-              <div className="text-[9px] uppercase tracking-[0.4em] text-black/30">
-                Additional States Pending
-              </div>
-              <div className="text-[10px] uppercase tracking-widest text-black/40">
-                Next Layer Loading
+          {/* SIGNAL */}
+          <section ref={signalRef} className="mt-32">
+            <div className="mb-8 text-center text-[9px] uppercase tracking-[0.35em] text-black/40">
+              Signal — Propagation Layer
+            </div>
+
+            <div className="text-center max-w-xl mx-auto mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4">
+                Movement Identified
+              </h2>
+
+              <p className="text-[12px] uppercase tracking-wider text-black/50">
+                States propagate. Structures respond.
+              </p>
+            </div>
+
+            <div className="flex justify-center">
+              <div className="px-10 py-10 border border-black/10 rounded-lg text-center bg-white">
+                <div className="text-[10px] uppercase tracking-[0.35em] text-black/40 mb-4">
+                  First Signal Pending
+                </div>
+
+                <div className="text-[9px] uppercase tracking-[0.3em] text-black/30">
+                  Signal Path
+                </div>
               </div>
             </div>
           </section>
@@ -401,23 +418,20 @@ const HomeView: React.FC<Props> = ({
 
             {/* GRID EDITORIAL (premium placeholder) */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* A — vertical editorial */}
               <div className="rounded-lg overflow-hidden border border-black/5 bg-white">
                 <div className="aspect-[4/5] bg-gradient-to-b from-[#f2f2f2] to-[#e8e8e8] relative">
                   <div className="absolute inset-0 opacity-[0.18] mix-blend-multiply bg-[radial-gradient(circle_at_30%_20%,#000_0,transparent_55%),radial-gradient(circle_at_70%_80%,#000_0,transparent_60%)]" />
                 </div>
               </div>
 
-              {/* B — square (macro / textura) */}
               <div className="rounded-lg overflow-hidden border border-black/5 bg-white">
                 <div className="aspect-square bg-gradient-to-b from-[#f3f3f3] to-[#e7e7e7] relative">
                   <div className="absolute inset-0 opacity-[0.16] mix-blend-multiply bg-[linear-gradient(90deg,transparent_0,rgba(0,0,0,0.04)_35%,transparent_70%),radial-gradient(circle_at_65%_35%,#000_0,transparent_58%)]" />
                 </div>
               </div>
 
-              {/* C — horizontal (ambiente) */}
-              <div className="rounded-lg overflow-hidden border border-black/5 bg-white md:col-span-1">
-                <div className="aspect-[3/4] md:aspect-[4/5] bg-gradient-to-b from-[#f2f2f2] to-[#e6e6e6] relative">
+              <div className="rounded-lg overflow-hidden border border-black/5 bg-white">
+                <div className="aspect-[4/5] bg-gradient-to-b from-[#f2f2f2] to-[#e6e6e6] relative">
                   <div className="absolute inset-0 opacity-[0.14] mix-blend-multiply bg-[radial-gradient(circle_at_45%_55%,#000_0,transparent_60%),linear-gradient(180deg,rgba(0,0,0,0.04)_0,transparent_45%)]" />
                 </div>
               </div>
