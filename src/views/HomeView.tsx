@@ -194,7 +194,6 @@ const HomeView: React.FC<Props> = ({
                   Request Access
                 </button>
               </div>
-            </div>
           </section>
 
           {/* CONCEPT NOTE */}
