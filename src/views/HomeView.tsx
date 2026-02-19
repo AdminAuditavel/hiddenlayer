@@ -10,7 +10,7 @@ type Props = {
   navigateToDetail: (product: Product) => void;
 };
 
-type SectionId = "MATHEMATICS" | "SYSTEM" | "SIGNAL";
+type SectionId = "MATHEMATICS" | "SYSTEM" | "SIGNAL" | "FIELD";
 
 const HomeView: React.FC<Props> = ({
   products,
@@ -24,6 +24,7 @@ const HomeView: React.FC<Props> = ({
   const mathRef = useRef<HTMLDivElement>(null);
   const systemRef = useRef<HTMLElement>(null);
   const signalRef = useRef<HTMLElement>(null);
+  const fieldRef = useRef<HTMLElement>(null);
 
   // ⭐ active section (menu reage ao scroll)
   const [activeSection, setActiveSection] = useState<SectionId>("MATHEMATICS");
@@ -42,6 +43,7 @@ const HomeView: React.FC<Props> = ({
       { id: "MATHEMATICS" as const, ref: mathRef },
       { id: "SYSTEM" as const, ref: systemRef },
       { id: "SIGNAL" as const, ref: signalRef },
+      { id: "FIELD" as const, ref: fieldRef },
     ],
     []
   );
@@ -50,7 +52,7 @@ const HomeView: React.FC<Props> = ({
     const target = sections.find((s) => s.id === id)?.ref.current;
     if (!target) return;
 
-    // já troca o highlight no clique (UX instantânea)
+    // troca o highlight no clique (UX instantânea)
     setActiveSection(id);
 
     target.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -69,10 +71,12 @@ const HomeView: React.FC<Props> = ({
 
     const observer = new IntersectionObserver(
       (obsEntries) => {
-        // pega a seção mais “visível” (maior intersectionRatio)
         const visible = obsEntries
           .filter((e) => e.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))[0];
+          .sort(
+            (a, b) =>
+              (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0)
+          )[0];
 
         if (!visible) return;
 
@@ -80,8 +84,7 @@ const HomeView: React.FC<Props> = ({
         if (match) setActiveSection(match.id);
       },
       {
-        // ajusta para navbar fixa (h-12 + padding do menu)
-        // quando a seção cruza essa “janela”, consideramos ativa
+        // janela de ativação (ajustada para navbar fixa)
         root: null,
         rootMargin: "-25% 0px -60% 0px",
         threshold: [0.05, 0.1, 0.2, 0.35, 0.5, 0.75],
@@ -144,7 +147,12 @@ const HomeView: React.FC<Props> = ({
             >
               Signal
             </li>
-            <li className="text-black/30">Field</li>
+            <li
+              className={navItemClass(activeSection === "FIELD")}
+              onClick={() => scrollToSection("FIELD")}
+            >
+              Field
+            </li>
           </ul>
         </div>
       </nav>
@@ -372,6 +380,36 @@ const HomeView: React.FC<Props> = ({
               <div className="text-[10px] uppercase tracking-widest text-black/40">
                 Next Layer Loading
               </div>
+            </div>
+          </section>
+
+          {/* FIELD */}
+          <section ref={fieldRef} className="mt-32">
+            <div className="mb-8 text-center text-[9px] uppercase tracking-[0.35em] text-black/40">
+              Field — Applied Context
+            </div>
+
+            <div className="text-center max-w-xl mx-auto mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4">
+                System in Environment
+              </h2>
+
+              <p className="text-[12px] uppercase tracking-wider text-black/50">
+                Vestíveis como estruturas operando em campo real.
+              </p>
+            </div>
+
+            {/* GRID EDITORIAL */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="aspect-square bg-[#eaeaea] rounded-lg" />
+              <div className="aspect-square bg-[#eaeaea] rounded-lg" />
+              <div className="aspect-square bg-[#eaeaea] rounded-lg" />
+            </div>
+
+            <div className="mt-16 text-center">
+              <p className="text-[10px] uppercase tracking-[0.35em] text-black/40">
+                Context defines perception
+              </p>
             </div>
           </section>
 
