@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Product, AppView } from "../types";
 
+import HLLoading from "../components/HLLoading";
+
 import systemBaseMockup from "../products/Camisa-Modelo-Descolado-Cinza-BASE.png";
 
 // FIELD assets (src/field/*)
@@ -70,6 +72,14 @@ const HomeView: React.FC<Props> = ({
   navigateToDetail,
 }) => {
   const [logoError, setLogoError] = useState(false);
+
+  // HL ritual loading (curto)
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => setIsLoading(false), 1400);
+    return () => clearTimeout(t);
+  }, []);
 
   // ⭐ refs
   const mathRef = useRef<HTMLDivElement>(null);
@@ -148,6 +158,8 @@ const HomeView: React.FC<Props> = ({
 
   return (
     <div className="animate-in fade-in duration-500 bg-[#f6f6f6] text-black">
+      {isLoading && <HLLoading />}
+
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#f6f6f6]/80 backdrop-blur-md border-b border-black/5">
         <div className="max-w-[1280px] mx-auto px-6 h-12 flex items-center justify-between">
