@@ -1,3 +1,10 @@
+export enum AppView {
+  HOME = 'HOME',
+  CATALOG = 'CATALOG',
+  DETAIL = 'DETAIL',
+  ASSISTANT = 'ASSISTANT'
+}
+
 export type Series = "MATHEMATICS" | "SYSTEM" | "SIGNAL";
 
 export interface Product {
@@ -5,13 +12,13 @@ export interface Product {
   ref: string;
   name: string;
 
-  series: Series;          // 👈 NOVO (arquitetura)
-  category?: string;       // 👈 vira opcional (UI)
+  series: Series;
+  category?: string;
 
   description: string;
   image: string;
 
-  price?: string;          // 👈 opcional por enquanto
+  price?: string;
 
   specs?: {
     composition?: string;
@@ -20,5 +27,5 @@ export interface Product {
   };
 
   labels?: string[];
-  isCore?: boolean;        // 👈 já usamos no grid
+  isCore?: boolean;
 }
