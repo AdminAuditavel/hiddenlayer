@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Product, AppView } from "../types";
 
 import systemBaseMockup from "../products/Camisa-Modelo-Descolado-Cinza-BASE.png";
@@ -10,6 +10,8 @@ type Props = {
   navigateToDetail: (product: Product) => void;
 };
 
+type SectionId = "MATHEMATICS" | "SYSTEM" | "SIGNAL";
+
 const HomeView: React.FC<Props> = ({
   products,
   currentView,
@@ -18,20 +20,83 @@ const HomeView: React.FC<Props> = ({
 }) => {
   const [logoError, setLogoError] = useState(false);
 
-  // ⭐ Passo 1 — criar refs no HomeView
+  // ⭐ refs
   const mathRef = useRef<HTMLDivElement>(null);
   const systemRef = useRef<HTMLElement>(null);
   const signalRef = useRef<HTMLElement>(null);
 
-  // ⭐ separar por série (prepara multi-série sem mudar UI)
-  const mathematicsProducts = products.filter((p) => p.series === "MATHEMATICS");
+  // ⭐ active section (menu reage ao scroll)
+  const [activeSection, setActiveSection] = useState<SectionId>("MATHEMATICS");
 
+  // ⭐ separar por série
+  const mathematicsProducts = products.filter((p) => p.series === "MATHEMATICS");
   const systemProducts = products.filter((p) => p.series === "SYSTEM");
 
   const systemAnchor = systemProducts[0];
   const mathAnchor = mathematicsProducts.find((p) => p.isCore);
-
   const heroProduct = systemAnchor ?? mathAnchor;
+
+  // Mapeamento de seções (para click e observer)
+  const sections = useMemo(
+    () => [
+      { id: "MATHEMATICS" as const, ref: mathRef },
+      { id: "SYSTEM" as const, ref: systemRef },
+      { id: "SIGNAL" as const, ref: signalRef },
+    ],
+    []
+  );
+
+  const scrollToSection = (id: SectionId) => {
+    const target = sections.find((s) => s.id === id)?.ref.current;
+    if (!target) return;
+
+    // já troca o highlight no clique (UX instantânea)
+    setActiveSection(id);
+
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  // ⭐ IntersectionObserver: atualiza underline conforme scroll
+  useEffect(() => {
+    const entries: Array<{ id: SectionId; el: Element }> = [];
+
+    for (const s of sections) {
+      const el = s.ref.current;
+      if (el) entries.push({ id: s.id, el });
+    }
+
+    if (entries.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (obsEntries) => {
+        // pega a seção mais “visível” (maior intersectionRatio)
+        const visible = obsEntries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))[0];
+
+        if (!visible) return;
+
+        const match = entries.find((x) => x.el === visible.target);
+        if (match) setActiveSection(match.id);
+      },
+      {
+        // ajusta para navbar fixa (h-12 + padding do menu)
+        // quando a seção cruza essa “janela”, consideramos ativa
+        root: null,
+        rootMargin: "-25% 0px -60% 0px",
+        threshold: [0.05, 0.1, 0.2, 0.35, 0.5, 0.75],
+      }
+    );
+
+    for (const e of entries) observer.observe(e.el);
+
+    return () => observer.disconnect();
+  }, [sections]);
+
+  const navItemClass = (isActive: boolean) =>
+    `pb-1 cursor-pointer ${
+      isActive ? "text-primary border-b border-primary" : "text-black/50"
+    }`;
 
   return (
     <div className="animate-in fade-in duration-500 bg-[#f6f6f6] text-black">
@@ -62,36 +127,23 @@ const HomeView: React.FC<Props> = ({
         <div className="max-w-[1280px] mx-auto px-6 pb-4">
           <ul className="flex space-x-8 text-[10px] font-medium uppercase tracking-widest">
             <li
-              className={`pb-1 ${
-                currentView === AppView.HOME
-                  ? "text-primary border-b border-primary"
-                  : "text-black/50"
-              }`}
-              onClick={() =>
-                mathRef.current?.scrollIntoView({ behavior: "smooth" })
-              }
+              className={navItemClass(activeSection === "MATHEMATICS")}
+              onClick={() => scrollToSection("MATHEMATICS")}
             >
               Mathematics
             </li>
-
             <li
-              className="text-black/50 pb-1 cursor-pointer"
-              onClick={() =>
-                systemRef.current?.scrollIntoView({ behavior: "smooth" })
-              }
+              className={navItemClass(activeSection === "SYSTEM")}
+              onClick={() => scrollToSection("SYSTEM")}
             >
               System
             </li>
-
             <li
-              className="text-black/50 pb-1 cursor-pointer"
-              onClick={() =>
-                signalRef.current?.scrollIntoView({ behavior: "smooth" })
-              }
+              className={navItemClass(activeSection === "SIGNAL")}
+              onClick={() => scrollToSection("SIGNAL")}
             >
               Signal
             </li>
-
             <li className="text-black/30">Field</li>
           </ul>
         </div>
@@ -120,10 +172,8 @@ const HomeView: React.FC<Props> = ({
                   {/* IMAGE */}
                   <div className="aspect-[4/5] bg-[#f2f2f2]">
                     <img
-                      // mantém a intenção original do arquivo:
-                      // (observação: seu código atual usa anchorProduct, mas essa variável não existe no arquivo)
-                      src={(heroProduct as Product).image}
-                      alt={(heroProduct as Product).name}
+                      src={heroProduct.image}
+                      alt={heroProduct.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -136,7 +186,7 @@ const HomeView: React.FC<Props> = ({
                       </div>
 
                       <div className="text-xl font-bold uppercase tracking-widest mb-3">
-                        {(heroProduct as Product).name}
+                        {heroProduct.name}
                       </div>
 
                       <div className="text-[10px] uppercase tracking-[0.25em] text-black/40 mb-6">
@@ -170,9 +220,8 @@ const HomeView: React.FC<Props> = ({
             Current State
           </div>
 
-          {/* ⭐ Passo 2 — marcar as seções (Mathematics grid) */}
+          {/* ⭐ seção Mathematics marcada */}
           <div ref={mathRef}>
-            {/* MATHEMATICS GRID */}
             <section className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
               {mathematicsProducts.map((p) => {
                 const isCore = p.isCore;
@@ -234,7 +283,7 @@ const HomeView: React.FC<Props> = ({
             <div className="mt-12 border-t border-black/10"></div>
           </section>
 
-          {/* ⭐ Passo 2 — marcar as seções (System series) */}
+          {/* ⭐ seção System marcada */}
           <section ref={systemRef} className="mt-24">
             <div className="mb-6 text-[9px] tracking-[0.35em] uppercase text-black/40 text-center">
               System Series — Emerging State
@@ -314,7 +363,7 @@ const HomeView: React.FC<Props> = ({
             </div>
           </section>
 
-          {/* ⭐ Passo 2 — marcar as seções (Future states / Signal) */}
+          {/* ⭐ seção Signal marcada (Future states) */}
           <section ref={signalRef} className="py-16 flex justify-center">
             <div className="text-center space-y-3">
               <div className="text-[9px] uppercase tracking-[0.4em] text-black/30">
