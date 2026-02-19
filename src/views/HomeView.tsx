@@ -399,11 +399,28 @@ const HomeView: React.FC<Props> = ({
               </p>
             </div>
 
-            {/* GRID EDITORIAL */}
+            {/* GRID EDITORIAL (premium placeholder) */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="aspect-square bg-[#eaeaea] rounded-lg" />
-              <div className="aspect-square bg-[#eaeaea] rounded-lg" />
-              <div className="aspect-square bg-[#eaeaea] rounded-lg" />
+              {/* A — vertical editorial */}
+              <div className="rounded-lg overflow-hidden border border-black/5 bg-white">
+                <div className="aspect-[4/5] bg-gradient-to-b from-[#f2f2f2] to-[#e8e8e8] relative">
+                  <div className="absolute inset-0 opacity-[0.18] mix-blend-multiply bg-[radial-gradient(circle_at_30%_20%,#000_0,transparent_55%),radial-gradient(circle_at_70%_80%,#000_0,transparent_60%)]" />
+                </div>
+              </div>
+
+              {/* B — square (macro / textura) */}
+              <div className="rounded-lg overflow-hidden border border-black/5 bg-white">
+                <div className="aspect-square bg-gradient-to-b from-[#f3f3f3] to-[#e7e7e7] relative">
+                  <div className="absolute inset-0 opacity-[0.16] mix-blend-multiply bg-[linear-gradient(90deg,transparent_0,rgba(0,0,0,0.04)_35%,transparent_70%),radial-gradient(circle_at_65%_35%,#000_0,transparent_58%)]" />
+                </div>
+              </div>
+
+              {/* C — horizontal (ambiente) */}
+              <div className="rounded-lg overflow-hidden border border-black/5 bg-white md:col-span-1">
+                <div className="aspect-[3/4] md:aspect-[4/5] bg-gradient-to-b from-[#f2f2f2] to-[#e6e6e6] relative">
+                  <div className="absolute inset-0 opacity-[0.14] mix-blend-multiply bg-[radial-gradient(circle_at_45%_55%,#000_0,transparent_60%),linear-gradient(180deg,rgba(0,0,0,0.04)_0,transparent_45%)]" />
+                </div>
+              </div>
             </div>
 
             <div className="mt-16 text-center">
