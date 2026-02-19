@@ -3,6 +3,11 @@ import { Product, AppView } from "../types";
 
 import systemBaseMockup from "../products/Camisa-Modelo-Descolado-Cinza-BASE.png";
 
+// ✅ FIELD assets (você disse que colocou em src/field)
+import tecidoField from "../field/Tecido-FIELD.png";
+import estudoGraficoField from "../field/Estudo-Grafico-FIELD.png";
+import frame1Field from "../field/Frame1-FIELD.png";
+
 type Props = {
   products: Product[];
   currentView: AppView;
@@ -52,9 +57,7 @@ const HomeView: React.FC<Props> = ({
     const target = sections.find((s) => s.id === id)?.ref.current;
     if (!target) return;
 
-    // UX instantânea
     setActiveSection(id);
-
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
@@ -84,7 +87,6 @@ const HomeView: React.FC<Props> = ({
         if (match) setActiveSection(match.id);
       },
       {
-        // ajusta para navbar fixa
         root: null,
         rootMargin: "-25% 0px -60% 0px",
         threshold: [0.05, 0.1, 0.2, 0.35, 0.5, 0.75],
@@ -371,7 +373,7 @@ const HomeView: React.FC<Props> = ({
             </div>
           </section>
 
-          {/* SIGNAL */}
+          {/* SIGNAL (mantive o seu layout atual; se você quiser trocar pela versão “Propagation Layer”, eu ajusto aqui) */}
           <section ref={signalRef} className="mt-32">
             <div className="mb-8 text-center text-[9px] uppercase tracking-[0.35em] text-black/40">
               Signal — Propagation Layer
@@ -416,23 +418,71 @@ const HomeView: React.FC<Props> = ({
               </p>
             </div>
 
-            {/* GRID EDITORIAL (premium placeholder) */}
+            {/* GRID EDITORIAL — com imagens */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Tecido */}
               <div className="rounded-lg overflow-hidden border border-black/5 bg-white">
-                <div className="aspect-[4/5] bg-gradient-to-b from-[#f2f2f2] to-[#e8e8e8] relative">
-                  <div className="absolute inset-0 opacity-[0.18] mix-blend-multiply bg-[radial-gradient(circle_at_30%_20%,#000_0,transparent_55%),radial-gradient(circle_at_70%_80%,#000_0,transparent_60%)]" />
+                <div className="aspect-[4/5] bg-[#f2f2f2] relative overflow-hidden">
+                  <img
+                    src={tecidoField}
+                    alt="Field material / tecido"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 left-3 bg-white/70 backdrop-blur px-2 py-1 rounded border border-black/5">
+                    <div className="text-[8px] uppercase tracking-[0.25em] text-black/60">
+                      Material
+                    </div>
+                  </div>
+                </div>
+                <div className="px-4 py-4">
+                  <div className="text-[10px] uppercase tracking-[0.3em] text-black/45">
+                    Fabric close / texture
+                  </div>
                 </div>
               </div>
 
+              {/* Estudo */}
               <div className="rounded-lg overflow-hidden border border-black/5 bg-white">
-                <div className="aspect-square bg-gradient-to-b from-[#f3f3f3] to-[#e7e7e7] relative">
-                  <div className="absolute inset-0 opacity-[0.16] mix-blend-multiply bg-[linear-gradient(90deg,transparent_0,rgba(0,0,0,0.04)_35%,transparent_70%),radial-gradient(circle_at_65%_35%,#000_0,transparent_58%)]" />
+                <div className="aspect-square bg-[#f2f2f2] relative overflow-hidden">
+                  <img
+                    src={estudoGraficoField}
+                    alt="Field study / estudo"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 left-3 bg-white/70 backdrop-blur px-2 py-1 rounded border border-black/5">
+                    <div className="text-[8px] uppercase tracking-[0.25em] text-black/60">
+                      Study
+                    </div>
+                  </div>
+                </div>
+                <div className="px-4 py-4">
+                  <div className="text-[10px] uppercase tracking-[0.3em] text-black/45">
+                    Structure / measurement
+                  </div>
                 </div>
               </div>
 
+              {/* Frame */}
               <div className="rounded-lg overflow-hidden border border-black/5 bg-white">
-                <div className="aspect-[4/5] bg-gradient-to-b from-[#f2f2f2] to-[#e6e6e6] relative">
-                  <div className="absolute inset-0 opacity-[0.14] mix-blend-multiply bg-[radial-gradient(circle_at_45%_55%,#000_0,transparent_60%),linear-gradient(180deg,rgba(0,0,0,0.04)_0,transparent_45%)]" />
+                <div className="aspect-[4/5] bg-[#f2f2f2] relative overflow-hidden">
+                  <img
+                    src={frame1Field}
+                    alt="Field conceptual frame"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 left-3 bg-white/70 backdrop-blur px-2 py-1 rounded border border-black/5">
+                    <div className="text-[8px] uppercase tracking-[0.25em] text-black/60">
+                      Frame
+                    </div>
+                  </div>
+                </div>
+                <div className="px-4 py-4">
+                  <div className="text-[10px] uppercase tracking-[0.3em] text-black/45">
+                    Conceptual still
+                  </div>
                 </div>
               </div>
             </div>
