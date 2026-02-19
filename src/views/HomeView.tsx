@@ -3,7 +3,7 @@ import { Product, AppView } from "../types";
 
 import systemBaseMockup from "../products/Camisa-Modelo-Descolado-Cinza-BASE.png";
 
-// ✅ FIELD assets (você disse que colocou em src/field)
+// FIELD assets (src/field/*)
 import tecidoField from "../field/Tecido-FIELD.png";
 import estudoGraficoField from "../field/Estudo-Grafico-FIELD.png";
 import frame1Field from "../field/Frame1-FIELD.png";
@@ -34,7 +34,7 @@ const HomeView: React.FC<Props> = ({
   // ⭐ active section (menu reage ao scroll)
   const [activeSection, setActiveSection] = useState<SectionId>("MATHEMATICS");
 
-  // ⭐ separar por série
+  // ⭐ separar por série (prepara multi-série sem mudar UI)
   const mathematicsProducts = products.filter((p) => p.series === "MATHEMATICS");
   const systemProducts = products.filter((p) => p.series === "SYSTEM");
 
@@ -57,6 +57,7 @@ const HomeView: React.FC<Props> = ({
     const target = sections.find((s) => s.id === id)?.ref.current;
     if (!target) return;
 
+    // UX instantânea
     setActiveSection(id);
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   };
@@ -74,6 +75,7 @@ const HomeView: React.FC<Props> = ({
 
     const observer = new IntersectionObserver(
       (obsEntries) => {
+        // pega a seção mais “visível”
         const visible = obsEntries
           .filter((e) => e.isIntersecting)
           .sort(
@@ -87,6 +89,7 @@ const HomeView: React.FC<Props> = ({
         if (match) setActiveSection(match.id);
       },
       {
+        // ajusta para navbar fixa (h-12 + menu)
         root: null,
         rootMargin: "-25% 0px -60% 0px",
         threshold: [0.05, 0.1, 0.2, 0.35, 0.5, 0.75],
@@ -94,7 +97,6 @@ const HomeView: React.FC<Props> = ({
     );
 
     for (const e of entries) observer.observe(e.el);
-
     return () => observer.disconnect();
   }, [sections]);
 
@@ -293,7 +295,7 @@ const HomeView: React.FC<Props> = ({
             <div className="mt-12 border-t border-black/10"></div>
           </section>
 
-          {/* ⭐ seção System marcada */}
+          {/* SYSTEM SERIES */}
           <section ref={systemRef} className="mt-24">
             <div className="mb-6 text-[9px] tracking-[0.35em] uppercase text-black/40 text-center">
               System Series — Emerging State
@@ -373,7 +375,7 @@ const HomeView: React.FC<Props> = ({
             </div>
           </section>
 
-          {/* SIGNAL (mantive o seu layout atual; se você quiser trocar pela versão “Propagation Layer”, eu ajusto aqui) */}
+          {/* SIGNAL */}
           <section ref={signalRef} className="mt-32">
             <div className="mb-8 text-center text-[9px] uppercase tracking-[0.35em] text-black/40">
               Signal — Propagation Layer
@@ -418,69 +420,82 @@ const HomeView: React.FC<Props> = ({
               </p>
             </div>
 
-            {/* GRID EDITORIAL — com imagens */}
+            {/* GRID EDITORIAL — micro-desequilíbrio */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Tecido */}
-              <div className="rounded-lg overflow-hidden border border-black/5 bg-white">
-                <div className="aspect-[4/5] bg-[#f2f2f2] relative overflow-hidden">
+              {/* MATERIAL (grande) */}
+              <div className="md:col-span-2 rounded-lg overflow-hidden border border-black/5 bg-white">
+                <div className="aspect-[16/9] md:aspect-[12/5] bg-[#f2f2f2] relative overflow-hidden">
                   <img
                     src={tecidoField}
                     alt="Field material / tecido"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
+
+                  {/* micro label recorrente */}
                   <div className="absolute top-3 left-3 bg-white/70 backdrop-blur px-2 py-1 rounded border border-black/5">
                     <div className="text-[8px] uppercase tracking-[0.25em] text-black/60">
-                      Material
+                      Field / Material
                     </div>
                   </div>
                 </div>
-                <div className="px-4 py-4">
+
+                <div className="px-5 py-5">
                   <div className="text-[10px] uppercase tracking-[0.3em] text-black/45">
                     Fabric close / texture
                   </div>
                 </div>
               </div>
 
-              {/* Estudo */}
+              {/* STUDY (neutro, menos contraste) */}
               <div className="rounded-lg overflow-hidden border border-black/5 bg-white">
                 <div className="aspect-square bg-[#f2f2f2] relative overflow-hidden">
                   <img
                     src={estudoGraficoField}
                     alt="Field study / estudo"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover opacity-70 contrast-75 saturate-75"
                     loading="lazy"
                   />
-                  <div className="absolute top-3 left-3 bg-white/70 backdrop-blur px-2 py-1 rounded border border-black/5">
-                    <div className="text-[8px] uppercase tracking-[0.25em] text-black/60">
-                      Study
+
+                  {/* micro label recorrente */}
+                  <div className="absolute top-3 left-3 bg-white/65 backdrop-blur px-2 py-1 rounded border border-black/5">
+                    <div className="text-[8px] uppercase tracking-[0.25em] text-black/55">
+                      Field / Study
                     </div>
                   </div>
                 </div>
-                <div className="px-4 py-4">
-                  <div className="text-[10px] uppercase tracking-[0.3em] text-black/45">
+
+                <div className="px-5 py-5">
+                  <div className="text-[10px] uppercase tracking-[0.3em] text-black/40">
                     Structure / measurement
                   </div>
                 </div>
               </div>
 
-              {/* Frame */}
-              <div className="rounded-lg overflow-hidden border border-black/5 bg-white">
-                <div className="aspect-[4/5] bg-[#f2f2f2] relative overflow-hidden">
+              {/* FRAME (mais respiro + mais misterioso) */}
+              <div className="md:col-span-3 rounded-lg overflow-hidden border border-black/5 bg-white">
+                <div className="aspect-[21/9] bg-[#f2f2f2] relative overflow-hidden">
                   <img
                     src={frame1Field}
                     alt="Field conceptual frame"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover opacity-90 contrast-95"
                     loading="lazy"
                   />
-                  <div className="absolute top-3 left-3 bg-white/70 backdrop-blur px-2 py-1 rounded border border-black/5">
-                    <div className="text-[8px] uppercase tracking-[0.25em] text-black/60">
-                      Frame
+
+                  {/* vinheta sutil */}
+                  <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,transparent_35%,rgba(0,0,0,0.18)_100%)] opacity-40" />
+
+                  {/* micro label recorrente */}
+                  <div className="absolute top-3 left-3 bg-white/55 backdrop-blur px-2 py-1 rounded border border-black/5">
+                    <div className="text-[8px] uppercase tracking-[0.25em] text-black/55">
+                      Field / Frame
                     </div>
                   </div>
                 </div>
-                <div className="px-4 py-4">
-                  <div className="text-[10px] uppercase tracking-[0.3em] text-black/45">
+
+                {/* mais respiro */}
+                <div className="px-6 py-8 text-center">
+                  <div className="text-[10px] uppercase tracking-[0.35em] text-black/40">
                     Conceptual still
                   </div>
                 </div>
