@@ -22,6 +22,9 @@ const HomeView: React.FC<Props> = ({
   const mathematicsProducts = products.filter(
     (p) => p.series === "MATHEMATICS"
   );
+  const systemProducts = products.filter(
+    (p) => p.series === "SYSTEM"
+  );
 
   return (
     <div className="animate-in fade-in duration-500 bg-[#f6f6f6] text-black">
@@ -163,49 +166,86 @@ const HomeView: React.FC<Props> = ({
             <div className="mt-12 border-t border-black/10"></div>
           </section>
 
-          {/* SYSTEM PREVIEW */}
+          {/* SYSTEM SERIES */}
           <section className="mt-24">
-            <div className="mb-6 text-[9px] uppercase tracking-[0.35em] text-black/40 text-center">
+          
+            <div className="mb-6 text-[9px] tracking-[0.35em] uppercase text-black/40 text-center">
               System Series — Emerging State
             </div>
-
-            <div className="max-w-xl mx-auto">
-              <div className="bg-white rounded-lg border border-black/5 overflow-hidden group transition-transform hover:scale-[1.01]">
-
-                <div className="aspect-[3/4] bg-[#e6e6e6] relative overflow-hidden">
-                  <img
-                    src={systemBaseMockup}
-                    alt="System Series"
-                    className="w-full h-full object-cover opacity-95"
-                  />
-
-                  <div className="absolute inset-0 flex items-end justify-center pb-6 pointer-events-none">
-                    <div className="text-[8px] uppercase tracking-[0.35em] text-black/40">
-                      Layer Forming
+          
+            <div className="flex flex-col md:flex-row gap-6 justify-center">
+          
+              {/* PREVIEW CARD — sempre existe */}
+              <div className="max-w-xl w-full md:w-[420px]">
+                <div className="bg-white rounded-lg overflow-hidden border border-black/5 group">
+          
+                  <div className="aspect-[3/4] overflow-hidden relative bg-[#e6e6e6]">
+                    <img
+                      src={systemBaseMockup}
+                      alt="System Series"
+                      className="w-full h-full object-cover opacity-95"
+                    />
+          
+                    <div className="absolute inset-0 flex items-end justify-center pb-6 pointer-events-none">
+                      <div className="text-[8px] uppercase tracking-[0.35em] text-black/40">
+                        Layer Forming
+                      </div>
                     </div>
                   </div>
+          
+                  <div className="p-6 text-center">
+                    <div className="text-xs font-bold tracking-widest uppercase mb-2">
+                      SYSTEM SERIES
+                    </div>
+          
+                    <div className="text-[9px] text-black/40 uppercase tracking-[0.25em] mb-2">
+                      Structural Layer Emerging
+                    </div>
+          
+                    <div className="text-[8px] text-black/30 uppercase tracking-[0.3em]">
+                      First State Identified
+                    </div>
+                  </div>
+          
                 </div>
-
-                <div className="p-6 text-center">
-                  <div className="text-xs font-bold uppercase tracking-widest mb-2">
-                    SYSTEM SERIES
-                  </div>
-
-                  <div className="text-[9px] uppercase tracking-[0.25em] text-black/40 mb-2">
-                    Structural Layer Emerging
-                  </div>
-
-                  <div className="text-[8px] uppercase tracking-[0.3em] text-black/30 mb-4">
-                    First State Identified
-                  </div>
-
-                  <button className="px-6 py-2 border border-black/20 text-[9px] uppercase tracking-[0.3em] text-black/60 rounded hover:border-primary/60 hover:text-primary transition-colors">
-                    Request Access
-                  </button>
-                </div>
-
               </div>
+          
+              {/* FIRST STATE — aparece quando existir produto */}
+              {systemProducts.length > 0 && (
+                <div className="max-w-xl w-full md:w-[420px]">
+                  {systemProducts.slice(0, 1).map((p) => (
+                    <div
+                      key={p.id}
+                      className="bg-white rounded-lg overflow-hidden border border-black/5 group transition-transform hover:scale-[1.01]"
+                    >
+                      <div className="aspect-[3/4] bg-[#f2f2f2] overflow-hidden">
+                        <img
+                          src={p.image}
+                          alt={p.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+          
+                      <div className="p-6 text-center">
+                        <div className="text-xs font-bold uppercase tracking-widest mb-2">
+                          {p.name}
+                        </div>
+          
+                        <div className="text-[9px] uppercase tracking-[0.25em] text-black/40 mb-4">
+                          First Structural State
+                        </div>
+          
+                        <button className="px-6 py-2 border border-black/20 text-[9px] uppercase tracking-[0.3em] text-black/60 rounded hover:border-primary/60 hover:text-primary transition-colors">
+                          View State
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+          
             </div>
+          
           </section>
 
           {/* FUTURE STATES */}
