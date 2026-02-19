@@ -1,3 +1,5 @@
+//src/data/products.ts
+
 import { Product } from "../types";
 
 import limitModel from "../products/Modelo-Descolado-Blusa-Branca-LIMIT.png";
