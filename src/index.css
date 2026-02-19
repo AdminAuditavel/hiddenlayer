@@ -93,3 +93,34 @@ img {
   background: var(--hl-primary);
   color: black;
 }
+
+/* ---------- HIDDEN LAYER MOTION ---------- */
+
+@keyframes hl-breathe {
+  0%,100% {
+    transform: scaleY(1);
+    opacity: .6;
+  }
+  50% {
+    transform: scaleY(1.4);
+    opacity: 1;
+  }
+}
+
+.hl-breathe {
+  transform-origin: center;
+  animation: hl-breathe 3s ease-in-out infinite;
+}
+
+/* stagger support (bars sequence) */
+.hl-breathe-delay-1 { animation-delay: .15s; }
+.hl-breathe-delay-2 { animation-delay: .3s; }
+.hl-breathe-delay-3 { animation-delay: .45s; }
+.hl-breathe-delay-4 { animation-delay: .6s; }
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hl-breathe {
+    animation: none;
+  }
+}
