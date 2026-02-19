@@ -27,7 +27,10 @@ const HomeView: React.FC<Props> = ({
     (p) => p.series === "SYSTEM"
   );
   
-  const anchorProduct = mathematicsProducts.find((p) => p.isCore);
+  const systemAnchor = systemProducts[0];
+  const mathAnchor = mathematicsProducts.find((p) => p.isCore);
+  
+  const heroProduct = systemAnchor ?? mathAnchor;
 
   return (
     <div className="animate-in fade-in duration-500 bg-[#f6f6f6] text-black">
@@ -92,7 +95,7 @@ const HomeView: React.FC<Props> = ({
           </section>
 
           {/* HERO SECONDARY — ANCHOR */}
-          {anchorProduct && (
+          {heroProduct && (
             <section className="mb-24">
               <div className="bg-white rounded-lg border border-black/5 overflow-hidden">
                 
