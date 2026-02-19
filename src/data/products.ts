@@ -8,7 +8,7 @@ import integralModel from "../products/Modelo-Descolado-Blusa-Preta-INTEGRAL.png
 export const PRODUCTS: Product[] = [
   {
     id: "hl-sm-02",
-    ref: "L-042",
+    ref: "MTH-02",
     name: "LIMIT",
     category: "MATHEMATICS SERIES",
     description:
@@ -18,7 +18,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "hl-sm-01",
-    ref: "G-001",
+    ref: "MTH-01",
     name: "GRADIENT",
     category: "MATHEMATICS SERIES",
     description:
@@ -28,7 +28,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "hl-sm-03",
-    ref: "S-770",
+    ref: "MTH-03",
     name: "SEQUENCE",
     category: "MATHEMATICS SERIES",
     description:
@@ -38,7 +38,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "hl-sm-04",
-    ref: "I-912",
+    ref: "MTH-04",
     name: "INTEGRAL",
     category: "MATHEMATICS SERIES",
     description:
