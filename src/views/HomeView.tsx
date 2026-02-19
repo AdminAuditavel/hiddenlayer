@@ -22,9 +22,12 @@ const HomeView: React.FC<Props> = ({
   const mathematicsProducts = products.filter(
     (p) => p.series === "MATHEMATICS"
   );
+  
   const systemProducts = products.filter(
     (p) => p.series === "SYSTEM"
   );
+  
+  const anchorProduct = mathematicsProducts.find((p) => p.isCore);
 
   return (
     <div className="animate-in fade-in duration-500 bg-[#f6f6f6] text-black">
@@ -87,6 +90,51 @@ const HomeView: React.FC<Props> = ({
               </p>
             </div>
           </section>
+
+          {/* HERO SECONDARY — ANCHOR */}
+          {anchorProduct && (
+            <section className="mb-24">
+              <div className="bg-white rounded-lg border border-black/5 overflow-hidden">
+                
+                <div className="grid md:grid-cols-2">
+          
+                  {/* IMAGE */}
+                  <div className="aspect-[4/5] bg-[#f2f2f2]">
+                    <img
+                      src={anchorProduct.image}
+                      alt={anchorProduct.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+          
+                  {/* CONTENT */}
+                  <div className="flex items-center justify-center p-10">
+                    <div className="text-center md:text-left max-w-sm">
+          
+                      <div className="text-[9px] uppercase tracking-[0.35em] text-black/40 mb-3">
+                        Anchor State
+                      </div>
+          
+                      <div className="text-xl font-bold uppercase tracking-widest mb-3">
+                        {anchorProduct.name}
+                      </div>
+          
+                      <div className="text-[10px] uppercase tracking-[0.25em] text-black/40 mb-6">
+                        Mathematics Series
+                      </div>
+          
+                      <button className="px-6 py-2 border border-black/20 text-[9px] uppercase tracking-[0.3em] text-black/60 rounded hover:border-primary/60 hover:text-primary transition-colors">
+                        Explore Piece
+                      </button>
+          
+                    </div>
+                  </div>
+          
+                </div>
+          
+              </div>
+            </section>
+          )}
 
           {/* LAYER TRANSITION */}
           <section className="py-20 flex justify-center">
