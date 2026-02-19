@@ -17,6 +17,52 @@ type Props = {
 
 type SectionId = "MATHEMATICS" | "SYSTEM" | "SIGNAL" | "FIELD";
 
+function UnderlineBars({
+  bars = 5,
+  gapClassName = "gap-[2px]",
+}: {
+  bars?: number;
+  gapClassName?: string;
+}) {
+  return (
+    <div className={`absolute left-0 bottom-0 flex ${gapClassName}`}>
+      {Array.from({ length: bars }).map((_, i) => (
+        <span
+          // delay via inline style (melhor que criar 20 classes)
+          key={i}
+          className="w-[2px] h-[8px] bg-primary hl-breathe rounded-full"
+          style={{ animationDelay: `${i * 0.2}s` }}
+        />
+      ))}
+    </div>
+  );
+}
+
+function NavItem({
+  label,
+  active,
+  onClick,
+}: {
+  label: string;
+  active: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <li className="relative pb-2 cursor-pointer select-none" onClick={onClick}>
+      <span
+        className={`uppercase tracking-widest text-[10px] ${
+          active ? "text-primary" : "text-black/50"
+        }`}
+      >
+        {label}
+      </span>
+
+      {/* underline respirando (barras) */}
+      {active && <UnderlineBars />}
+    </li>
+  );
+}
+
 const HomeView: React.FC<Props> = ({
   products,
   currentView,
@@ -34,7 +80,7 @@ const HomeView: React.FC<Props> = ({
   // ⭐ active section (menu reage ao scroll)
   const [activeSection, setActiveSection] = useState<SectionId>("MATHEMATICS");
 
-  // ⭐ separar por série (prepara multi-série sem mudar UI)
+  // ⭐ separar por série
   const mathematicsProducts = products.filter((p) => p.series === "MATHEMATICS");
   const systemProducts = products.filter((p) => p.series === "SYSTEM");
 
@@ -59,10 +105,11 @@ const HomeView: React.FC<Props> = ({
 
     // UX instantânea
     setActiveSection(id);
+
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  // ⭐ IntersectionObserver: atualiza underline conforme scroll
+  // ⭐ IntersectionObserver: atualiza activeSection conforme scroll
   useEffect(() => {
     const entries: Array<{ id: SectionId; el: Element }> = [];
 
@@ -75,7 +122,6 @@ const HomeView: React.FC<Props> = ({
 
     const observer = new IntersectionObserver(
       (obsEntries) => {
-        // pega a seção mais “visível”
         const visible = obsEntries
           .filter((e) => e.isIntersecting)
           .sort(
@@ -89,7 +135,7 @@ const HomeView: React.FC<Props> = ({
         if (match) setActiveSection(match.id);
       },
       {
-        // ajusta para navbar fixa (h-12 + menu)
+        // janela de ativação (ajustada para navbar fixa)
         root: null,
         rootMargin: "-25% 0px -60% 0px",
         threshold: [0.05, 0.1, 0.2, 0.35, 0.5, 0.75],
@@ -99,11 +145,6 @@ const HomeView: React.FC<Props> = ({
     for (const e of entries) observer.observe(e.el);
     return () => observer.disconnect();
   }, [sections]);
-
-  const navItemClass = (isActive: boolean) =>
-    `pb-1 cursor-pointer ${
-      isActive ? "text-primary border-b border-primary" : "text-black/50"
-    }`;
 
   return (
     <div className="animate-in fade-in duration-500 bg-[#f6f6f6] text-black">
@@ -132,31 +173,32 @@ const HomeView: React.FC<Props> = ({
         </div>
 
         <div className="max-w-[1280px] mx-auto px-6 pb-4">
-          <ul className="flex space-x-8 text-[10px] font-medium uppercase tracking-widest">
-            <li
-              className={navItemClass(activeSection === "MATHEMATICS")}
-              onClick={() => scrollToSection("MATHEMATICS")}
-            >
-              Mathematics
-            </li>
-            <li
-              className={navItemClass(activeSection === "SYSTEM")}
+          <ul className="flex space-x-8 font-medium">
+            <NavItem
+              label="Mathematics"
+              active={activeSection === "MATHEMATICS"}
+              onClick={() => {
+                // opcional: mantém sua arquitetura original
+                // (se HOME é a view que contém a landing inteira)
+                setCurrentView(AppView.HOME);
+                scrollToSection("MATHEMATICS");
+              }}
+            />
+            <NavItem
+              label="System"
+              active={activeSection === "SYSTEM"}
               onClick={() => scrollToSection("SYSTEM")}
-            >
-              System
-            </li>
-            <li
-              className={navItemClass(activeSection === "SIGNAL")}
+            />
+            <NavItem
+              label="Signal"
+              active={activeSection === "SIGNAL"}
               onClick={() => scrollToSection("SIGNAL")}
-            >
-              Signal
-            </li>
-            <li
-              className={navItemClass(activeSection === "FIELD")}
+            />
+            <NavItem
+              label="Field"
+              active={activeSection === "FIELD"}
               onClick={() => scrollToSection("FIELD")}
-            >
-              Field
-            </li>
+            />
           </ul>
         </div>
       </nav>
@@ -232,7 +274,7 @@ const HomeView: React.FC<Props> = ({
             Current State
           </div>
 
-          {/* ⭐ seção Mathematics marcada */}
+          {/* MATHEMATICS GRID */}
           <div ref={mathRef}>
             <section className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
               {mathematicsProducts.map((p) => {
@@ -432,7 +474,6 @@ const HomeView: React.FC<Props> = ({
                     loading="lazy"
                   />
 
-                  {/* micro label recorrente */}
                   <div className="absolute top-3 left-3 bg-white/70 backdrop-blur px-2 py-1 rounded border border-black/5">
                     <div className="text-[8px] uppercase tracking-[0.25em] text-black/60">
                       Field / Material
@@ -457,7 +498,6 @@ const HomeView: React.FC<Props> = ({
                     loading="lazy"
                   />
 
-                  {/* micro label recorrente */}
                   <div className="absolute top-3 left-3 bg-white/65 backdrop-blur px-2 py-1 rounded border border-black/5">
                     <div className="text-[8px] uppercase tracking-[0.25em] text-black/55">
                       Field / Study
@@ -482,10 +522,8 @@ const HomeView: React.FC<Props> = ({
                     loading="lazy"
                   />
 
-                  {/* vinheta sutil */}
                   <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,transparent_35%,rgba(0,0,0,0.18)_100%)] opacity-40" />
 
-                  {/* micro label recorrente */}
                   <div className="absolute top-3 left-3 bg-white/55 backdrop-blur px-2 py-1 rounded border border-black/5">
                     <div className="text-[8px] uppercase tracking-[0.25em] text-black/55">
                       Field / Frame
@@ -493,7 +531,6 @@ const HomeView: React.FC<Props> = ({
                   </div>
                 </div>
 
-                {/* mais respiro */}
                 <div className="px-6 py-8 text-center">
                   <div className="text-[10px] uppercase tracking-[0.35em] text-black/40">
                     Conceptual still
