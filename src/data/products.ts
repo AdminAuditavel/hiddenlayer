@@ -12,7 +12,8 @@ export const PRODUCTS: Product[] = [
     id: "hl-sm-02",
     ref: "MTH-02",
     name: "LIMIT",
-    category: "MATHEMATICS SERIES",
+    series: "MATHEMATICS",
+    category: "Behavioral Layer",
     description:
       "Estado de aproximação. Onde o comportamento encontra a fronteira.",
     image: limitModel,
@@ -22,7 +23,8 @@ export const PRODUCTS: Product[] = [
     id: "hl-sm-01",
     ref: "MTH-01",
     name: "GRADIENT",
-    category: "MATHEMATICS SERIES",
+    series: "MATHEMATICS",
+    category: "Behavioral Layer",
     description:
       "Taxa de variação contínua dentro de um sistema fechado.",
     image: gradientModel,
@@ -32,7 +34,8 @@ export const PRODUCTS: Product[] = [
     id: "hl-sm-03",
     ref: "MTH-03",
     name: "SEQUENCE",
-    category: "MATHEMATICS SERIES",
+    series: "MATHEMATICS",
+    category: "Behavioral Layer",
     description:
       "Progressão discreta como estrutura de transformação.",
     image: sequenceModel,
@@ -42,7 +45,8 @@ export const PRODUCTS: Product[] = [
     id: "hl-sm-04",
     ref: "MTH-04",
     name: "INTEGRAL",
-    category: "MATHEMATICS SERIES",
+    series: "MATHEMATICS",
+    category: "Behavioral Layer",
     description:
       "Acúmulo de comportamento. Síntese do sistema.",
     image: integralModel,
