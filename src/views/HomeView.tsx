@@ -234,9 +234,13 @@ const HomeView: React.FC<Props> = ({
                         <div className="text-[9px] uppercase tracking-[0.25em] text-black/40 mb-4">
                           First Structural State
                         </div>
+
+                        <div className="text-[8px] uppercase tracking-[0.3em] text-black/30 mb-4">
+                          Series Activated
+                        </div>
           
                         <button className="px-6 py-2 border border-black/20 text-[9px] uppercase tracking-[0.3em] text-black/60 rounded hover:border-primary/60 hover:text-primary transition-colors">
-                          View State
+                          Observe State
                         </button>
                       </div>
                     </div>
