@@ -164,14 +164,15 @@ const HomeView: React.FC<Props> = ({
             <div className="max-w-xl mx-auto">
               <div className="bg-white rounded-lg overflow-hidden border border-black/5 group transition-transform hover:scale-[1.01]">
           
+                {/* IMAGE */}
                 <div className="aspect-[3/4] overflow-hidden relative bg-[#e6e6e6]">
                   <img
                     src={latentStateMockup}
                     alt="Latent State"
                     className="w-full h-full object-cover opacity-95"
                   />
-                
-                  {/* overlay emergente */}
+          
+                  {/* EMERGING LABEL */}
                   <div className="absolute inset-0 flex items-end justify-center pb-6 pointer-events-none">
                     <div className="text-[8px] uppercase tracking-[0.35em] text-black/40">
                       Emerging
@@ -179,13 +180,14 @@ const HomeView: React.FC<Props> = ({
                   </div>
                 </div>
           
+                {/* CONTENT */}
                 <div className="p-6 text-center">
                   <div className="text-xs font-bold tracking-widest uppercase mb-2">
                     SYSTEM — LATENT STATE
                   </div>
           
                   <div className="text-[9px] text-black/40 uppercase tracking-[0.25em]">
-                    System Series
+                    Structural Layer Preview
                   </div>
                 </div>
           
