@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Product, AppView } from "../types";
-import latentStateMockup1 from "../products/src/products/Camisa-Modelo-Descolado-Cinza-INPUT-HIDDEN-OUTPUT.png";
+import latentStateMockup1 from "../products/Camisa-Modelo-Descolado-Cinza-INPUT-HIDDEN-OUTPUT.png";
 
 type Props = {
   products: Product[];
