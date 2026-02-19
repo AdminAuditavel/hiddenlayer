@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Product, AppView } from "../types";
-import latentStateMockup1 from "../products/Camisa-Modelo-Descolado-Cinza-INPUT-HIDDEN-OUTPUT.png";
+import systemBaseMockup from "../products/Camisa-Modelo-Descolado-Cinza-BASE.png";
 
 type Props = {
   products: Product[];
@@ -167,7 +167,7 @@ const HomeView: React.FC<Props> = ({
                 {/* IMAGE */}
                 <div className="aspect-[3/4] overflow-hidden relative bg-[#e6e6e6]">
                   <img
-                    src={latentStateMockup1}
+                    src={systemBaseMockup}
                     alt="System Series"
                     className="w-full h-full object-cover opacity-95"
                   />
