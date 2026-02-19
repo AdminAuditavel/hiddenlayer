@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Product, AppView } from "../types";
-import latentStateMockup from "../products/Modelo-Descolado-Blusa-Cinza-LATENT-STATE.png";
+import latentStateMockup1 from "../products/src/products/Camisa-Modelo-Descolado-Cinza-INPUT-HIDDEN-OUTPUT.png";
 
 type Props = {
   products: Product[];
@@ -167,7 +167,7 @@ const HomeView: React.FC<Props> = ({
                 {/* IMAGE */}
                 <div className="aspect-[3/4] overflow-hidden relative bg-[#e6e6e6]">
                   <img
-                    src={latentStateMockup}
+                    src={latentStateMockup1}
                     alt="Latent State"
                     className="w-full h-full object-cover opacity-95"
                   />
