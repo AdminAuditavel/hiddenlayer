@@ -6,6 +6,7 @@ import limitModel from "../products/Modelo-Descolado-Blusa-Branca-LIMIT.png";
 import gradientModel from "../products/Modelo-Descolado-Blusa-Preta-GRADIENT.png";
 import sequenceModel from "../products/Modelo-Descolado-Blusa-Branca-SEQUENCE.png";
 import integralModel from "../products/Modelo-Descolado-Blusa-Preta-INTEGRAL.png";
+import systemIOModel from "../products/Camisa-Modelo-Descolado-Cinza-INPUT-HIDDEN-OUTPUT.png";
 
 export const PRODUCTS: Product[] = [
   {
@@ -53,4 +54,15 @@ export const PRODUCTS: Product[] = [
     image: integralModel,
     hotprintiUrl: "https://hotprinti.com.br/seu-link-produto-4",
   },
+  {
+  id: "hl-sys-01",
+  ref: "SYS-01",
+  name: "INPUT → HIDDEN → OUTPUT",
+  series: "SYSTEM",
+  category: "Structural Layer",
+  description:
+    "Arquitetura fundamental de transformação. Representação do fluxo interno do sistema.",
+  image: systemIOModel,
+}
+  
 ];
