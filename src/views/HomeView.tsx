@@ -153,6 +153,37 @@ const HomeView: React.FC<Props> = ({
             })}
           </section>
 
+          {/* SYSTEM SERIES PREVIEW */}
+          <section className="mt-24">
+          
+            <div className="mb-6 text-[9px] tracking-[0.35em] uppercase text-black/40 text-center">
+              System Series — Emerging State
+            </div>
+          
+            <div className="max-w-xl mx-auto">
+              <div className="bg-white rounded-lg overflow-hidden border border-black/5 group transition-transform hover:scale-[1.01]">
+          
+                <div className="aspect-[3/4] bg-[#f2f2f2] flex items-center justify-center">
+                  <div className="text-[10px] uppercase tracking-[0.35em] text-black/40">
+                    Latent State
+                  </div>
+                </div>
+          
+                <div className="p-6 text-center">
+                  <div className="text-xs font-bold tracking-widest uppercase mb-2">
+                    LATENT STATE
+                  </div>
+          
+                  <div className="text-[9px] text-black/40 uppercase tracking-[0.25em]">
+                    System Series
+                  </div>
+                </div>
+          
+              </div>
+            </div>
+          
+          </section>
+
           {/* CONCEPT NOTE */}
           <section className="mt-16 mb-10 pt-6">
             <div className="flex flex-col items-center text-center gap-4">
