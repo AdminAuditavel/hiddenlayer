@@ -29,6 +29,7 @@ export const PRODUCTS: Product[] = [
       "Taxa de variação contínua dentro de um sistema fechado.",
     image: gradientModel,
     hotprintiUrl: "https://hotprinti.com.br/seu-link-produto-1",
+    isCore: true,
   },
   {
     id: "hl-sm-03",
@@ -51,6 +52,5 @@ export const PRODUCTS: Product[] = [
       "Acúmulo de comportamento. Síntese do sistema.",
     image: integralModel,
     hotprintiUrl: "https://hotprinti.com.br/seu-link-produto-4",
-    isCore: true,
   },
 ];
