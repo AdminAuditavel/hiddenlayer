@@ -1,5 +1,3 @@
-// src/views/HomeView.tsx
-
 import React, { useState } from "react";
 import { Product, AppView } from "../types";
 
@@ -103,15 +101,15 @@ const HomeView: React.FC<Props> = ({
           </div>
 
           {/* PRODUCT GRID */}
-          <section className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <section className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {products.map((p) => {
               const isCore = p.isCore;
 
               return (
                 <div
                   key={p.id}
-                  className={`bg-white rounded-lg overflow-hidden border border-black/5 group transition-transform hover:scale-[1.015] ${
-                    isCore ? "scale-[1.02]" : ""
+                  className={`bg-white rounded-lg overflow-hidden border border-black/5 group transition-transform ${
+                    isCore ? "scale-[1.02]" : "hover:scale-[1.015]"
                   }`}
                 >
                   {/* IMAGE */}
@@ -122,8 +120,8 @@ const HomeView: React.FC<Props> = ({
                       alt={p.name}
                     />
 
-                    <div className="absolute top-3 left-3 bg-white/80 backdrop-blur-sm px-2 py-0.5 rounded border border-black/5">
-                      <span className="text-[9px] font-bold text-black/70 tracking-widest uppercase">
+                    <div className="absolute top-3 left-3 bg-white/70 backdrop-blur-sm px-2 py-0.5 rounded border border-black/5">
+                      <span className="text-[8px] font-bold text-black/70 tracking-[0.25em] uppercase">
                         REF: {p.ref}
                       </span>
                     </div>
@@ -135,7 +133,7 @@ const HomeView: React.FC<Props> = ({
                       {p.name}
                     </h3>
 
-                    <p className="text-[9px] text-black/50 uppercase tracking-wider mb-3">
+                    <p className="text-[9px] text-black/40 uppercase tracking-[0.25em] mb-3">
                       {p.category}
                     </p>
 
