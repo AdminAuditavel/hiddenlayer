@@ -1,9 +1,9 @@
 export enum AppView {
-  HOME = 'HOME',
-  CATALOG = 'CATALOG',
-  DETAIL = 'DETAIL',
-  ASSISTANT = 'ASSISTANT',
-  FIELD = 'FIELD',
+  HOME = "HOME",
+  CATALOG = "CATALOG",
+  DETAIL = "DETAIL",
+  ASSISTANT = "ASSISTANT",
+  FIELD = "FIELD",
 }
 
 export type Series = "MATHEMATICS" | "SYSTEM" | "SIGNAL";
@@ -18,7 +18,9 @@ export interface Product {
   category?: string;
 
   description: string;
+
   image: string;
+  images?: string[]; // ⭐ galeria
 
   price?: string;
 
@@ -30,4 +32,6 @@ export interface Product {
 
   labels?: string[];
   isCore?: boolean;
+
+  hotprintiUrl?: string; // ⭐ venda externa
 }
