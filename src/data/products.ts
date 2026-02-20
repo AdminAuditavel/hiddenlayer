@@ -6,6 +6,11 @@ import sequenceModel from "../products/Modelo-Descolado-Blusa-Branca-SEQUENCE.pn
 import integralModel from "../products/Modelo-Descolado-Blusa-Preta-INTEGRAL.png";
 import systemIOModel from "../products/Modelo-Descolado-Blusa-Cinza-I-H-O.png";
 
+/* ⭐ NOVOS MOCKUPS COSTAS */
+import backWhite from "../products/Modelo-Costa-Blusa-Branca-LOGO.png";
+import backBlack from "../products/Modelo-Costa-Blusa-Preta-LOGO.png";
+import backGray from "../products/Modelo-Costa-Blusa-Cinza-LOGO.png";
+
 export const PRODUCTS: Product[] = [
 
   // HL-1.0 — MATHEMATICS
@@ -19,12 +24,21 @@ export const PRODUCTS: Product[] = [
     description:
       "Taxa de variação contínua dentro de um sistema fechado.",
     image: gradientModel,
+
+    /* ⭐ GALERIA */
+    images: [
+      gradientModel, // frente principal
+      backBlack,     // verso preto (principal desta peça)
+      backWhite,     // variação preview
+      backGray       // variação preview
+    ],
+
     isCore: true,
-    
+
     hotprintiUrl:
-    "https://hotprinti.com.br/hiddenlayer/product/c1d10d53-dbef-4b90-aa89-604dfdd274cb/",
+      "https://hotprinti.com.br/hiddenlayer/product/c1d10d53-dbef-4b90-aa89-604dfdd274cb/",
   },
-  
+
   {
     id: "hl-sm-02",
     ref: "MTH-02",
