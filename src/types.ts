@@ -13,6 +13,7 @@ export interface Product {
   name: string;
 
   series: Series;
+  version?: string;
   category?: string;
 
   description: string;
