@@ -56,6 +56,8 @@ const App: React.FC = () => {
       {currentView === AppView.DETAIL && selectedProduct && (
         <DetailView
           product={selectedProduct}
+          allProducts={PRODUCTS}
+          navigateToDetail={navigateToDetail}
           setCurrentView={setCurrentView}
         />
       )}
