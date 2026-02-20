@@ -31,8 +31,6 @@ export const PRODUCTS: Product[] = [
     images: [
       gradientModel, // frente principal
       backBlack,     // verso preto (principal desta peça)
-      backWhite,     // variação preview
-      backGray       // variação preview
     ],
 
     isCore: true,
