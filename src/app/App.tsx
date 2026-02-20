@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { AppView, Product } from "../types";
 import { PRODUCTS } from "../data/products";
 
@@ -21,6 +22,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black relative text-white">
+
       {/* HOME */}
       {currentView === AppView.HOME && (
         <HomeView
@@ -33,16 +35,31 @@ const App: React.FC = () => {
 
       {/* CATALOG */}
       {currentView === AppView.CATALOG && (
-        <CatalogView products={PRODUCTS} navigateToDetail={navigateToDetail} />
+        <CatalogView
+          products={PRODUCTS}
+          navigateToDetail={navigateToDetail}
+        />
+      )}
+
+      {/* FIELD */}
+      {currentView === AppView.FIELD && (
+        <FieldView />
       )}
 
       {/* DETAIL */}
       {currentView === AppView.DETAIL && selectedProduct && (
-        <DetailView product={selectedProduct} setCurrentView={setCurrentView} />
+        <DetailView
+          product={selectedProduct}
+          setCurrentView={setCurrentView}
+        />
       )}
 
-      {/* Bottom Navigation */}
-      <BottomNav currentView={currentView} setCurrentView={setCurrentView} />
+      {/* BOTTOM NAV */}
+      <BottomNav
+        currentView={currentView}
+        setCurrentView={setCurrentView}
+      />
+
     </div>
   );
 };
