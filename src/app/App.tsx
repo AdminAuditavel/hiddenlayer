@@ -7,6 +7,7 @@ import HomeView from "../views/HomeView";
 import CatalogView from "../views/CatalogView";
 import DetailView from "../views/DetailView";
 import FieldView from "../views/FieldView";
+import ProfileView from "../views/ProfileView";
 
 import BottomNav from "../components/BottomNav";
 
