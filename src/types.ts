@@ -2,7 +2,7 @@ export enum AppView {
   HOME = 'HOME',
   CATALOG = 'CATALOG',
   DETAIL = 'DETAIL',
-  ASSISTANT = 'ASSISTANT'
+  ASSISTANT = 'ASSISTANT',
   FIELD = 'FIELD',
 }
 
