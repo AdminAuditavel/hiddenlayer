@@ -20,7 +20,11 @@ export const PRODUCTS: Product[] = [
       "Taxa de variação contínua dentro de um sistema fechado.",
     image: gradientModel,
     isCore: true,
+    
+    hotprintiUrl:
+    "https://hotprinti.com.br/hiddenlayer/product/c1d10d53-dbef-4b90-aa89-604dfdd274cb/",
   },
+  
   {
     id: "hl-sm-02",
     ref: "MTH-02",
