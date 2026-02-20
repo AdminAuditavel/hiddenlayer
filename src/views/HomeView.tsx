@@ -130,7 +130,8 @@ const HomeView: React.FC<Props> = ({
 
     if (entries.length === 0) return;
 
-    const obser = new IntersectionObser(
+    // FIX: IntersectionObserver (nome correto) + usar a mesma variável `observer`
+    const observer = new IntersectionObserver(
       (obsEntries) => {
         const visible = obsEntries
           .filter((e) => e.isIntersecting)
