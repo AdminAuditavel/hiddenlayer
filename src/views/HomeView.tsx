@@ -130,7 +130,7 @@ const HomeView: React.FC<Props> = ({
 
     if (entries.length === 0) return;
 
-    const observer = new IntersectionObserver(
+    const obser = new IntersectionObser(
       (obsEntries) => {
         const visible = obsEntries
           .filter((e) => e.isIntersecting)
@@ -330,7 +330,7 @@ const HomeView: React.FC<Props> = ({
                         rel="noopener noreferrer"
                       >
                         <button className="w-full py-2 border border-black/20 text-[9px] uppercase tracking-widest text-black/60 rounded hover:border-primary/60 hover:text-primary transition-colors">
-                          Ver produto
+                          Ver na Loja
                         </button>
                       </a>
                     </div>
