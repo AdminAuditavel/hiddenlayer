@@ -6,12 +6,12 @@ type Props = {
   setCurrentView: (view: AppView) => void;
 };
 
-const ProductDetailView: React.FC<Props> = ({ product }) => {
+const ProductDetailView: React.FC<Props> = ({ product, setCurrentView }) => {
   return (
     <div className="animate-in fade-in duration-500 bg-[#f6f6f6] min-h-screen">
       <div className="max-w-[1100px] mx-auto px-6 py-24">
-
         <button
+          type="button"
           onClick={() => setCurrentView(AppView.HOME)}
           className="mb-8 text-[10px] uppercase tracking-[0.35em] text-black/40 hover:text-black transition"
         >
@@ -20,7 +20,6 @@ const ProductDetailView: React.FC<Props> = ({ product }) => {
 
         {/* GRID */}
         <div className="grid md:grid-cols-2 gap-12">
-
           {/* IMAGE */}
           <div className="bg-white border border-black/5 rounded-lg overflow-hidden">
             <img
@@ -32,7 +31,6 @@ const ProductDetailView: React.FC<Props> = ({ product }) => {
 
           {/* CONTENT */}
           <div className="flex flex-col justify-center bg-white border border-black/5 rounded-lg p-10">
-
             <div className="text-[10px] uppercase tracking-[0.35em] text-black/40 mb-3">
               REF: {product.ref}
             </div>
