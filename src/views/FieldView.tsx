@@ -26,23 +26,28 @@ const FieldView: React.FC = () => {
 
         {/* RESEARCH CARDS */}
         <section className="grid md:grid-cols-3 gap-6 mb-24">
+
           <ResearchCard
             title="Material"
             subtitle="Surface behavior"
             image={tecidoField}
+            label="Linked State"
           />
-
+        
           <ResearchCard
             title="Study"
-            subtitle="Structural exploration"
+            subtitle="Structural signal"
             image={estudoGraficoField}
+            label="Emerging Structure"
           />
-
+        
           <ResearchCard
             title="Frame"
             subtitle="Relational form"
             image={frame1Field}
+            label="Artifact Candidate"
           />
+        
         </section>
 
         {/* CONCEPT NOTE */}
