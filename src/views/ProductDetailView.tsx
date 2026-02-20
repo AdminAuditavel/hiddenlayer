@@ -1,8 +1,9 @@
 import React from "react";
-import { Product } from "../types";
+import { AppView, Product } from "../types";
 
 type Props = {
   product: Product;
+  setCurrentView: (view: AppView) => void;
 };
 
 const ProductDetailView: React.FC<Props> = ({ product }) => {
@@ -11,7 +12,7 @@ const ProductDetailView: React.FC<Props> = ({ product }) => {
       <div className="max-w-[1100px] mx-auto px-6 py-24">
 
         <button
-          onClick={() => window.history.back()}
+          onClick={() => setCurrentView(AppView.HOME)}
           className="mb-8 text-[10px] uppercase tracking-[0.35em] text-black/40 hover:text-black transition"
         >
           ← Back
