@@ -1,5 +1,5 @@
 import React from "react";
-import { AppView, Product } from "../types";
+import { Product, AppView } from "../types";
 
 type Props = {
   product: Product;
@@ -9,7 +9,9 @@ type Props = {
 const ProductDetailView: React.FC<Props> = ({ product, setCurrentView }) => {
   return (
     <div className="animate-in fade-in duration-500 bg-[#f6f6f6] min-h-screen">
-      <div className="max-w-[1100px] mx-auto px-6 py-24">
+      <div className="max-w-[1200px] mx-auto px-6 py-24">
+
+        {/* BACK */}
         <button
           type="button"
           onClick={() => setCurrentView(AppView.HOME)}
@@ -18,10 +20,11 @@ const ProductDetailView: React.FC<Props> = ({ product, setCurrentView }) => {
           ← Back
         </button>
 
-        {/* GRID */}
-        <div className="grid md:grid-cols-2 gap-12">
+        {/* GRID EDITORIAL */}
+        <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
+
           {/* IMAGE */}
-          <div className="bg-white border border-black/5 rounded-lg overflow-hidden">
+          <div className="bg-white border border-black/5 rounded-lg overflow-hidden md:sticky md:top-24">
             <img
               src={product.image}
               alt={product.name}
@@ -31,11 +34,12 @@ const ProductDetailView: React.FC<Props> = ({ product, setCurrentView }) => {
 
           {/* CONTENT */}
           <div className="flex flex-col justify-center bg-white border border-black/5 rounded-lg p-10">
-            <div className="text-[10px] uppercase tracking-[0.35em] text-black/40 mb-3">
+
+            <div className="text-[9px] uppercase tracking-[0.4em] text-black/40 mb-4">
               REF: {product.ref}
             </div>
 
-            <h1 className="text-2xl md:text-3xl font-bold uppercase tracking-widest mb-4 text-black">
+            <h1 className="text-3xl md:text-4xl font-bold uppercase tracking-widest mb-6 text-black">
               {product.name}
             </h1>
 
@@ -43,19 +47,17 @@ const ProductDetailView: React.FC<Props> = ({ product, setCurrentView }) => {
               {product.series} — {product.category}
             </p>
 
-            <p className="text-sm text-black/70 leading-relaxed mb-10">
+            <p className="text-sm text-black/70 leading-relaxed mb-12">
               {product.description}
             </p>
 
-            {/* BUY BUTTON */}
             {product.hotprintiUrl && (
               <a
                 href={product.hotprintiUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block"
               >
-                <button className="px-8 py-3 border border-black/20 text-[10px] uppercase tracking-[0.3em] text-black/60 rounded hover:border-primary/60 hover:text-primary transition-colors">
+                <button className="px-10 py-4 border border-black text-[10px] uppercase tracking-[0.35em] text-black rounded hover:bg-black hover:text-white transition">
                   Comprar
                 </button>
               </a>
