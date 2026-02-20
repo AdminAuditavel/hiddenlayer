@@ -292,6 +292,7 @@ const HomeView: React.FC<Props> = ({
                 return (
                   <div
                     key={p.id}
+                    onClick={() => navigateToDetail(p)}
                     className={`bg-white rounded-lg border border-black/5 overflow-hidden group transition-transform ${
                       isCore ? "scale-[1.02]" : "hover:scale-[1.015]"
                     }`}
@@ -330,7 +331,7 @@ const HomeView: React.FC<Props> = ({
                         rel="noopener noreferrer"
                       >
                         <button className="w-full py-2 border border-black/20 text-[9px] uppercase tracking-widest text-black/60 rounded hover:border-primary/60 hover:text-primary transition-colors">
-                          Ver na Loja
+                          Ver Produto
                         </button>
                       </a>
                     </div>
