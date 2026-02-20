@@ -46,7 +46,7 @@ const BottomNav: React.FC<Props> = ({
             layers
           </button>
 
-          {/* FIELD ⭐ */}
+          {/* FIELD */}
           <button
             onClick={() => {
               setCurrentView(AppView.FIELD);
@@ -61,8 +61,18 @@ const BottomNav: React.FC<Props> = ({
             radar
           </button>
 
-          {/* PROFILE / FUTURE */}
-          <button className="material-icons text-white/40">
+          {/* PROFILE */}
+          <button
+            onClick={() => {
+              setCurrentView(AppView.ASSISTANT);
+              window.scrollTo(0, 0);
+            }}
+            className={`material-icons ${
+              currentView === AppView.ASSISTANT
+                ? "text-primary"
+                : "text-white/40"
+            }`}
+          >
             person_outline
           </button>
 
