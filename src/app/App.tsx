@@ -5,7 +5,7 @@ import { PRODUCTS } from "../data/products";
 
 import HomeView from "../views/HomeView";
 import CatalogView from "../views/CatalogView";
-import DetailView from "../views/DetailView";
+import ProductDetailView from "../views/ProductDetailView"; // ⭐ nova view
 import FieldView from "../views/FieldView";
 import ProfileView from "../views/ProfileView";
 
@@ -43,23 +43,14 @@ const App: React.FC = () => {
       )}
 
       {/* FIELD */}
-      {currentView === AppView.FIELD && (
-        <FieldView />
-      )}
+      {currentView === AppView.FIELD && <FieldView />}
 
       {/* PROFILE */}
-      {currentView === AppView.ASSISTANT && (
-        <ProfileView />
-      )}
+      {currentView === AppView.ASSISTANT && <ProfileView />}
 
-      {/* DETAIL */}
+      {/* DETAIL — agora usa ProductDetailView */}
       {currentView === AppView.DETAIL && selectedProduct && (
-        <DetailView
-          product={selectedProduct}
-          allProducts={PRODUCTS}
-          navigateToDetail={navigateToDetail}
-          setCurrentView={setCurrentView}
-        />
+        <ProductDetailView product={selectedProduct} />
       )}
 
       {/* BOTTOM NAV */}
@@ -67,7 +58,6 @@ const App: React.FC = () => {
         currentView={currentView}
         setCurrentView={setCurrentView}
       />
-
     </div>
   );
 };
