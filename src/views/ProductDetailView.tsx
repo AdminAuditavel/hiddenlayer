@@ -10,6 +10,13 @@ const ProductDetailView: React.FC<Props> = ({ product }) => {
     <div className="animate-in fade-in duration-500 bg-[#f6f6f6] min-h-screen">
       <div className="max-w-[1100px] mx-auto px-6 py-24">
 
+        <button
+          onClick={() => window.history.back()}
+          className="mb-8 text-[10px] uppercase tracking-[0.35em] text-black/40 hover:text-black transition"
+        >
+          ← Back
+        </button>
+
         {/* GRID */}
         <div className="grid md:grid-cols-2 gap-12">
 
@@ -23,13 +30,13 @@ const ProductDetailView: React.FC<Props> = ({ product }) => {
           </div>
 
           {/* CONTENT */}
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center bg-white border border-black/5 rounded-lg p-10">
 
             <div className="text-[10px] uppercase tracking-[0.35em] text-black/40 mb-3">
               REF: {product.ref}
             </div>
 
-            <h1 className="text-2xl md:text-3xl font-bold uppercase tracking-widest mb-4">
+            <h1 className="text-2xl md:text-3xl font-bold uppercase tracking-widest mb-4 text-black">
               {product.name}
             </h1>
 
