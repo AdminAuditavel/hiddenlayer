@@ -29,19 +29,19 @@ const FieldView: React.FC = () => {
           <ResearchCard
             title="Material"
             subtitle="Surface behavior"
-            image="/field/FLD-MAT-01.jpg"
+            image="/field/Tecido-FIELD.png"
           />
 
           <ResearchCard
             title="Study"
             subtitle="Structural exploration"
-            image="/field/FLD-STD-01.jpg"
+            image="/field/Estudo-Grafico-FIELD.png"
           />
 
           <ResearchCard
             title="Frame"
             subtitle="Relational form"
-            image="/field/FLD-FRM-01.jpg"
+            image="/field/Frame1-FIELD.png"
           />
 
         </section>
