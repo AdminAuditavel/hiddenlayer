@@ -50,7 +50,10 @@ const App: React.FC = () => {
 
       {/* DETAIL — agora usa ProductDetailView */}
       {currentView === AppView.DETAIL && selectedProduct && (
-        <ProductDetailView product={selectedProduct} />
+        <ProductDetailView
+          product={selectedProduct}
+          setCurrentView={setCurrentView}
+        />
       )}
 
       {/* BOTTOM NAV */}
