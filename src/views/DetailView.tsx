@@ -91,7 +91,7 @@ const DetailView: React.FC<Props> = ({
                     {p.name}
                   </div>
 
-                  {"isCore" in p && (p as any).isCore && (
+                  {p.isCore && (
                     <div className="mt-2 text-[8px] tracking-[0.3em] text-primary uppercase">
                       Core State
                     </div>
