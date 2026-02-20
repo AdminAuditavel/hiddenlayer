@@ -7,7 +7,6 @@ type Props = {
 };
 
 const ProductDetailView: React.FC<Props> = ({ product, setCurrentView }) => {
-
   // ⭐ galeria
   const gallery = product.images?.length ? product.images : [product.image];
   const [activeImage, setActiveImage] = useState(gallery[0]);
@@ -20,7 +19,7 @@ const ProductDetailView: React.FC<Props> = ({ product, setCurrentView }) => {
         <button
           type="button"
           onClick={() => setCurrentView(AppView.HOME)}
-          className="mb-8 text-[10px] uppercase tracking-[0.35em] text-black/40 hover:text-black transition"
+          className="mb-10 text-[10px] uppercase tracking-[0.35em] text-black/40 hover:text-black transition"
         >
           ← Back
         </button>
@@ -77,20 +76,36 @@ const ProductDetailView: React.FC<Props> = ({ product, setCurrentView }) => {
               {product.series} — {product.category}
             </p>
 
+            {/* DESCRIPTION */}
             <p className="text-sm text-black/70 leading-relaxed mb-12">
               {product.description}
             </p>
 
+            {/* BUY */}
             {product.hotprintiUrl && (
               <a
                 href={product.hotprintiUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="mb-12"
               >
                 <button className="px-10 py-4 border border-black text-[10px] uppercase tracking-[0.35em] text-black rounded hover:bg-black hover:text-white transition">
                   Comprar
                 </button>
               </a>
+            )}
+
+            {/* CONCEPT NOTE */}
+            {product.concept && (
+              <div className="pt-8 border-t border-black/10">
+                <div className="text-[9px] uppercase tracking-[0.35em] text-black/40 mb-4">
+                  Concept
+                </div>
+
+                <p className="text-sm text-black/70 leading-relaxed">
+                  {product.concept}
+                </p>
+              </div>
             )}
           </div>
         </div>
