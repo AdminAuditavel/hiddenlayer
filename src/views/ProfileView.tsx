@@ -72,23 +72,20 @@ const ProfileView: React.FC = () => {
             Extended Access
           </div>
 
-          <button
-            className="
-              px-8 py-3
-              border border-black/20
-              text-[10px]
-              uppercase
-              tracking-[0.35em]
-              text-black/60
-              rounded
-              hover:border-primary/60
-              hover:text-primary
-              transition-colors
-            "
-            onClick={() => alert("Access request registered")}
+          <div className="text-[8px] uppercase tracking-[0.35em] text-black/40 mb-3">
+            Identity required
+          </div>
+
+          <a
+            href="https://hotprinti.com.br/hiddenlayer/register/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block"
           >
-            Request Access
-          </button>
+            <button className="px-6 py-2 border border-black/20 text-[9px] font-bold uppercase tracking-[0.3em] text-black/60 rounded hover:border-primary/60 hover:text-primary transition-colors">
+              Request Access
+            </button>
+          </a>
         </section>
 
         {/* SYSTEM LOG */}
