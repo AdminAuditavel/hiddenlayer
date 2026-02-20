@@ -47,6 +47,11 @@ const App: React.FC = () => {
         <FieldView />
       )}
 
+      {/* PROFILE */}
+      {currentView === AppView.ASSISTANT && (
+        <ProfileView />
+      )}
+
       {/* DETAIL */}
       {currentView === AppView.DETAIL && selectedProduct && (
         <DetailView
