@@ -61,6 +61,32 @@ const DetailView: React.FC<Props> = ({
         </div>
       </section>
 
+      {/* SERIES PROGRESS */}
+      <section className="px-6 pb-16 flex justify-center">
+        <div className="max-w-md w-full text-center space-y-3">
+      
+          <div className="text-[9px] uppercase tracking-[0.35em] text-white/40">
+            Series Completion
+          </div>
+      
+          <div className="w-full h-[3px] bg-white/10">
+            <div
+              className="h-full bg-white transition-all"
+              style={{
+                width: `${
+                  (allProducts.filter(p => p.series === product.series).length / 4) * 100
+                }%`
+              }}
+            />
+          </div>
+      
+          <div className="text-[8px] uppercase tracking-[0.3em] text-white/30">
+            {product.series}
+          </div>
+      
+        </div>
+      </section>
+
       {/* RELATED STATES */}
       <section className="pb-32 px-6">
         <div className="text-center mb-12">
