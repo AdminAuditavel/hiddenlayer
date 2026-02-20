@@ -21,6 +21,7 @@ export interface Product {
 
   image: string;
   images?: string[]; // ⭐ galeria
+  concept?: string; // ⭐ narrativa da peça
 
   price?: string;
 
