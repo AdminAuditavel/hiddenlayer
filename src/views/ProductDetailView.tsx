@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Product, AppView } from "../types";
 
 type Props = {
@@ -7,6 +7,11 @@ type Props = {
 };
 
 const ProductDetailView: React.FC<Props> = ({ product, setCurrentView }) => {
+
+  // ⭐ galeria
+  const gallery = product.images?.length ? product.images : [product.image];
+  const [activeImage, setActiveImage] = useState(gallery[0]);
+
   return (
     <div className="animate-in fade-in duration-500 bg-[#f6f6f6] min-h-screen">
       <div className="max-w-[1200px] mx-auto px-6 py-24">
@@ -21,15 +26,40 @@ const ProductDetailView: React.FC<Props> = ({ product, setCurrentView }) => {
         </button>
 
         {/* GRID EDITORIAL */}
-        <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
+        <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-12 items-start">
 
-          {/* IMAGE */}
-          <div className="bg-white border border-black/5 rounded-lg overflow-hidden md:sticky md:top-24">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="w-full h-full object-cover"
-            />
+          {/* IMAGE COLUMN */}
+          <div className="md:sticky md:top-24 space-y-4">
+
+            {/* IMAGE */}
+            <div className="bg-white border border-black/5 rounded-lg overflow-hidden">
+              <img
+                src={activeImage}
+                alt={product.name}
+                className="w-full h-full object-cover transition duration-300"
+              />
+            </div>
+
+            {/* THUMBNAILS */}
+            <div className="flex gap-3">
+              {gallery.map((img, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveImage(img)}
+                  className={`w-16 h-16 border rounded overflow-hidden transition ${
+                    activeImage === img
+                      ? "border-black"
+                      : "border-black/10 hover:border-black/40"
+                  }`}
+                >
+                  <img
+                    src={img}
+                    className="w-full h-full object-cover"
+                    alt=""
+                  />
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* CONTENT */}
