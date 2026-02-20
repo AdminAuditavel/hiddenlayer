@@ -3,6 +3,7 @@ export enum AppView {
   CATALOG = 'CATALOG',
   DETAIL = 'DETAIL',
   ASSISTANT = 'ASSISTANT'
+  FIELD = 'FIELD',
 }
 
 export type Series = "MATHEMATICS" | "SYSTEM" | "SIGNAL";
