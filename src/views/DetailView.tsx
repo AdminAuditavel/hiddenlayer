@@ -128,6 +128,31 @@ const DetailView: React.FC<Props> = ({
         </div>
       </section>
 
+      {/* NEXT STATE */}
+      <section className="pb-32 px-6 flex justify-center">
+      
+        <div className="max-w-md w-full text-center space-y-4">
+      
+          <div className="text-[9px] uppercase tracking-[0.35em] text-white/40">
+            Next State
+          </div>
+      
+          <div className="border border-white/10 rounded-lg py-10">
+      
+            <div className="text-[10px] uppercase tracking-[0.35em] text-white/30">
+              Signal Pending
+            </div>
+      
+            <div className="mt-3 text-[12px] uppercase tracking-wider text-white/20">
+              System expansion detected
+            </div>
+      
+          </div>
+      
+        </div>
+      
+      </section>
+
       {/* SPECS */}
       {product.specs && (
         <section className="pb-32 px-6 flex justify-center">
