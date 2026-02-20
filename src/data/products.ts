@@ -23,6 +23,8 @@ export const PRODUCTS: Product[] = [
     category: "Behavioral Layer",
     description:
       "Taxa de variação contínua dentro de um sistema fechado.",
+    concept:
+      "O gradiente representa transformação contínua dentro de sistemas. A peça investiga o espaço entre estados — onde mudança ocorre sem ruptura.",
     image: gradientModel,
 
     /* ⭐ GALERIA */
