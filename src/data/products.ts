@@ -3,7 +3,7 @@ import { Product } from "../types";
 import limitModel from "../products/Modelo-Descolado-Blusa-Branca-LIMIT.png";
 import gradientModel from "../products/Mockup-Modelo-Completo-Branca-GRADIENT.png";
 import sequenceModel from "../products/Modelo-Descolado-Blusa-Branca-SEQUENCE.png";
-import integralModel from "../products/Modelo-Descolado-Blusa-Preta-INTEGRAL.png";
+import integralModel from "../products/Modelo-Descolado-Blusa-Branca-INTEGRAL.png";
 import systemIOModel from "../products/Modelo-Descolado-Blusa-Cinza-I-H-O.png";
 import gradientModelBlack from "../products/Mockup-Modelo-Completo-Preta-GRADIENT.png";
 
