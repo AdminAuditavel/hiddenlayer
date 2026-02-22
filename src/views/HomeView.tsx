@@ -4,6 +4,7 @@ import { Product, AppView } from "../types";
 import HLPatternTeaser from "../components/HLPatternTeaser";
 
 import systemBaseMockup from "../products/Mockup-Modelo-Completo-Branca-GRADIENT.png";
+import systemLatentStateMockup from "../products/Modelo-Descolado-Blusa-Cinza-LATENT-STATE.png";
 
 // FIELD assets (src/field/*)
 import tecidoField from "../field/Tecido-FIELD.png";
@@ -30,7 +31,6 @@ function UnderlineBars({
     <div className={`absolute left-0 bottom-0 flex ${gapClassName}`}>
       {Array.from({ length: bars }).map((_, i) => (
         <span
-          // delay via inline style (melhor que criar 20 classes)
           key={i}
           className="w-[2px] h-[8px] bg-primary hl-breathe rounded-full"
           style={{ animationDelay: `${i * 0.2}s` }}
@@ -59,7 +59,6 @@ function NavItem({
         {label}
       </span>
 
-      {/* underline respirando (barras) */}
       {active && <UnderlineBars />}
     </li>
   );
@@ -130,7 +129,6 @@ const HomeView: React.FC<Props> = ({
 
     if (entries.length === 0) return;
 
-    // FIX: IntersectionObserver (nome correto) + usar a mesma variável `observer`
     const observer = new IntersectionObserver(
       (obsEntries) => {
         const visible = obsEntries
@@ -145,7 +143,6 @@ const HomeView: React.FC<Props> = ({
         if (match) setActiveSection(match.id);
       },
       {
-        // janela de ativação (ajustada para navbar fixa)
         root: null,
         rootMargin: "-25% 0px -60% 0px",
         threshold: [0.05, 0.1, 0.2, 0.35, 0.5, 0.75],
@@ -219,7 +216,7 @@ const HomeView: React.FC<Props> = ({
             <div className="rounded-lg overflow-hidden border border-black/5 bg-white">
               <div className="aspect-[4/5] bg-[#f2f2f2]">
                 <img
-                  src={systemBaseMockup} // gradient branca com modelo
+                  src={systemBaseMockup}
                   alt="Gradient — Mathematics Series"
                   className="w-full h-full object-cover"
                 />
@@ -245,7 +242,7 @@ const HomeView: React.FC<Props> = ({
             </div>
           </section>
 
-          {/* HERO SECONDARY — ANCHOR (mantém arquitetura / bloco existente) */}
+          {/* HERO SECONDARY — ANCHOR */}
           {heroProduct && (
             <section className="mb-24">
               <div className="bg-white rounded-lg border border-black/5 overflow-hidden">
@@ -284,7 +281,7 @@ const HomeView: React.FC<Props> = ({
             </section>
           )}
 
-          {/* LAYER TRANSITION — manifesto vira filosofia (logo abaixo do objeto) */}
+          {/* LAYER TRANSITION — manifesto vira filosofia */}
           <section className="py-20 flex justify-center">
             <div className="text-center">
               <div className="text-4xl font-bold uppercase tracking-tight">
@@ -382,14 +379,14 @@ const HomeView: React.FC<Props> = ({
                 <div className="bg-white rounded-lg overflow-hidden border border-black/5 group">
                   <div className="aspect-[3/4] overflow-hidden relative bg-[#e6e6e6]">
                     <img
-                      src={systemBaseMockup}
+                      src={systemLatentStateMockup}
                       alt="System Series"
                       className="w-full h-full object-cover opacity-95"
                     />
 
                     <div className="absolute inset-0 flex items-end justify-center pb-6 pointer-events-none">
                       <div className="text-[8px] uppercase tracking-[0.35em] text-black/40">
-                        Hidden Representation
+                        Layer Forming
                       </div>
                     </div>
                   </div>
@@ -495,9 +492,7 @@ const HomeView: React.FC<Props> = ({
               </p>
             </div>
 
-            {/* GRID EDITORIAL — micro-desequilíbrio */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* MATERIAL (grande) */}
               <div className="md:col-span-2 rounded-lg overflow-hidden border border-black/5 bg-white">
                 <div className="aspect-[16/9] md:aspect-[12/5] bg-[#f2f2f2] relative overflow-hidden">
                   <img
@@ -521,7 +516,6 @@ const HomeView: React.FC<Props> = ({
                 </div>
               </div>
 
-              {/* STUDY (neutro, menos contraste) */}
               <div className="rounded-lg overflow-hidden border border-black/5 bg-white">
                 <div className="aspect-square bg-[#f2f2f2] relative overflow-hidden">
                   <img
@@ -545,7 +539,6 @@ const HomeView: React.FC<Props> = ({
                 </div>
               </div>
 
-              {/* FRAME (mais respiro + mais misterioso) */}
               <div className="md:col-span-3 rounded-lg overflow-hidden border border-black/5 bg-white">
                 <div className="aspect-[21/9] bg-[#f2f2f2] relative overflow-hidden">
                   <img
