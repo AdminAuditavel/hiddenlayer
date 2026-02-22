@@ -3,7 +3,7 @@ import { Product, AppView } from "../types";
 
 import HLPatternTeaser from "../components/HLPatternTeaser";
 
-import systemBaseMockup from "../products/Mockup-Modelo-Completo-Branca-GRADIENT.png";
+import systemLatentState from "../products/Modelo-Descolado-Blusa-Cinza-LATENT-STATE.png";
 
 // FIELD assets (src/field/*)
 import tecidoField from "../field/Tecido-FIELD.png";
@@ -389,7 +389,7 @@ const HomeView: React.FC<Props> = ({
 
                     <div className="absolute inset-0 flex items-end justify-center pb-6 pointer-events-none">
                       <div className="text-[8px] uppercase tracking-[0.35em] text-black/40">
-                        Layer Forming
+                        Hidden Representation
                       </div>
                     </div>
                   </div>
