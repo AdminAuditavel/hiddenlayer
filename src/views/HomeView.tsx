@@ -3,7 +3,7 @@ import { Product, AppView } from "../types";
 
 import HLPatternTeaser from "../components/HLPatternTeaser";
 
-import systemBaseMockup "../products/Modelo-Descolado-Blusa-Cinza-LATENT-STATE.png";
+import systemBaseMockup from "../products/Modelo-Descolado-Blusa-Cinza-LATENT-STATE.png";
 
 // FIELD assets (src/field/*)
 import tecidoField from "../field/Tecido-FIELD.png";
