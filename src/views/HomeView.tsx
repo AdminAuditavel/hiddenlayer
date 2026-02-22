@@ -188,8 +188,6 @@ const HomeView: React.FC<Props> = ({
               label="Mathematics"
               active={activeSection === "MATHEMATICS"}
               onClick={() => {
-                // opcional: mantém sua arquitetura original
-                // (se HOME é a view que contém a landing inteira)
                 setCurrentView(AppView.HOME);
                 scrollToSection("MATHEMATICS");
               }}
@@ -216,19 +214,38 @@ const HomeView: React.FC<Props> = ({
       {/* CONTENT */}
       <main className="pt-24 pb-32">
         <div className="max-w-[1280px] mx-auto px-6">
-          {/* HERO */}
-          <section className="relative flex items-center justify-center min-h-[80vh] mb-20">
-            <div className="text-center">
-              <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold uppercase tracking-tight">
-                HIDDEN LAYER
-              </h1>
-              <p className="mt-6 text-[11px] uppercase tracking-widest text-black/50">
-                Between input and output.
-              </p>
+          {/* HERO — GRADIENT */}
+          <section className="relative mb-24">
+            <div className="rounded-lg overflow-hidden border border-black/5 bg-white">
+              <div className="aspect-[4/5] bg-[#f2f2f2]">
+                <img
+                  src={systemBaseMockup} // gradient branca com modelo
+                  alt="Gradient — Mathematics Series"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="p-10 text-center">
+                <div className="text-[9px] uppercase tracking-[0.35em] text-black/40 mb-3">
+                  Mathematics Series — Vol.01
+                </div>
+
+                <h1 className="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4">
+                  GRADIENT
+                </h1>
+
+                <p className="text-[11px] uppercase tracking-widest text-black/50 mb-6">
+                  Compression becomes structure.
+                </p>
+
+                <button className="px-6 py-2 border border-black/20 text-[9px] uppercase tracking-[0.3em] text-black/60 rounded hover:border-primary/60 hover:text-primary transition-colors">
+                  Explore Collection
+                </button>
+              </div>
             </div>
           </section>
 
-          {/* HERO SECONDARY — ANCHOR */}
+          {/* HERO SECONDARY — ANCHOR (mantém arquitetura / bloco existente) */}
           {heroProduct && (
             <section className="mb-24">
               <div className="bg-white rounded-lg border border-black/5 overflow-hidden">
@@ -267,14 +284,14 @@ const HomeView: React.FC<Props> = ({
             </section>
           )}
 
-          {/* LAYER TRANSITION */}
+          {/* LAYER TRANSITION — manifesto vira filosofia (logo abaixo do objeto) */}
           <section className="py-20 flex justify-center">
-            <div className="text-center space-y-3">
-              <div className="text-[9px] uppercase tracking-[0.4em] text-black/40">
-                Entering Layer
+            <div className="text-center">
+              <div className="text-4xl font-bold uppercase tracking-tight">
+                Hidden Layer
               </div>
-              <div className="text-[11px] uppercase tracking-widest text-black/50">
-                Mathematics Series — Vol.01
+              <div className="mt-6 text-[11px] uppercase tracking-widest text-black/50">
+                Between input and output.
               </div>
             </div>
           </section>
