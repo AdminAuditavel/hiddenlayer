@@ -6,7 +6,7 @@ import sequenceModel from "../products/Modelo-Descolado-Blusa-Branca-SEQUENCE.pn
 import integralModel from "../products/Modelo-Descolado-Blusa-Branca-INTEGRAL.png";
 import systemIOModel from "../products/Modelo-Descolado-Blusa-Cinza-I-H-O.png";
 import gradientModelBlack from "../products/Mockup-Modelo-Completo-Preta-GRADIENT.png";
-import systemLatentState from "../products/Modelo-Descolado-Blusa-Cinza-LATENT-STATE.pgn;
+import systemLatentState from "../products/Modelo-Descolado-Blusa-Cinza-LATENT-STATE.png";
 
 /* ⭐ NOVOS MOCKUPS COSTAS */
 import backWhite from "../products/Modelo-Costa-Blusa-Branca-LOGO.png";
