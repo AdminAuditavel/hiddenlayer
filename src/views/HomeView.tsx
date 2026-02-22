@@ -386,7 +386,7 @@ const HomeView: React.FC<Props> = ({
 
                     <div className="absolute inset-0 flex items-end justify-center pb-6 pointer-events-none">
                       <div className="text-[8px] uppercase tracking-[0.35em] text-black/40">
-                        Layer Forming
+                        Hidden Representation
                       </div>
                     </div>
                   </div>
