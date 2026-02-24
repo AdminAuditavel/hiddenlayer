@@ -4,7 +4,7 @@ import { Product, AppView } from "../types";
 import HLPatternTeaser from "../components/HLPatternTeaser";
 
 import systemBaseMockup from "../products/Mockup-Modelo-Completo-Branca-GRADIENT.png";
-import systemLatentStateMockup from "../products/Modelo-Descolado-Blusa-Cinza-LATENT-STATE.png";
+import systemLatentStateMockup from "../products/Modelo-Descolado-Blusa-Branca-LATENT-STATE.png";
 
 // FIELD assets (src/field/*)
 import tecidoField from "../field/Tecido-FIELD.png";
