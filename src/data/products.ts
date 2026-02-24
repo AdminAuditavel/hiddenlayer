@@ -1,6 +1,6 @@
 import { Product } from "../types";
 
-import limitModel from "../products/Modelo-Descolado-Blusa-Branca-LIMIT.png";
+import limitModel from "../products/Modelo-Descolado-Blusa-Preta-LIMIT.png";
 import gradientModel from "../products/Mockup-Modelo-Completo-Branca-GRADIENT.png";
 import sequenceModel from "../products/Modelo-Descolado-Blusa-Branca-SEQUENCE.png";
 import integralModel from "../products/Modelo-Descolado-Blusa-Branca-INTEGRAL.png";
