@@ -1,5 +1,8 @@
 # Hidden Layer — Sistema Visual Oficial
 
+**A Hidden Layer** ocupa o território: **filosofia da tecnologia / cultura da inteligência artificial**
+
+
 ## Princípio central
 
 Hidden Layer comunica o que acontece **entre entrada e saída** — transformação invisível, estrutura interna e fluxo de informação.
