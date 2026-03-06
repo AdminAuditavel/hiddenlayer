@@ -172,8 +172,30 @@ const HomeView: React.FC<Props> = ({
           </div>
 
           <div className="flex gap-4">
-            <button className="material-icons text-black/60">search</button>
-            <button className="material-icons text-black/60">
+            {/* LUPA -> HOME HOTPRINTI (MESMA ABA) */}
+            <button
+              type="button"
+              className="material-icons text-black/60"
+              onClick={() => {
+                window.location.href = "https://hotprinti.com.br/hiddenlayer/";
+              }}
+              aria-label="Ir para a loja na Hotprinti"
+              title="Buscar (ir para a loja)"
+            >
+              search
+            </button>
+
+            {/* SACOLA -> CART HOTPRINTI (MESMA ABA) */}
+            <button
+              type="button"
+              className="material-icons text-black/60"
+              onClick={() => {
+                window.location.href =
+                  "https://hotprinti.com.br/hiddenlayer/cart/";
+              }}
+              aria-label="Ir para a sacola"
+              title="Sacola"
+            >
               shopping_bag
             </button>
           </div>
