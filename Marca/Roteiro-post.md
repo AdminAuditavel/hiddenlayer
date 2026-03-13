@@ -129,6 +129,12 @@ Hidden concepts of AI.
 Today: Attention.
 Regra anti-distração
 
+### Tente manter todos os posts com estrutura parecida.
+Isso cria identidade visual reconhecível no feed.
+### CONCEPT
+### diagram
+### short explanation
+
 Durante o processo:
 
 ❌ não abrir YouTube
